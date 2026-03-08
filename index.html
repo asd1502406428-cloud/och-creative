@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCH Creative</title>
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --card: rgba(255,255,255,0.72);
+      --text: #1f1f2a;
+      --sub: #66667a;
+      --accent: #7c5cff;
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #f7f7fb 0%, #eef1ff 100%);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .brand {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(124, 92, 255, 0.1);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 52px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--sub);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--sub);
+      line-height: 1.7;
+    }
+
+    .links {
+      margin-top: 42px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .footer {
+      margin-top: 70px;
+      text-align: center;
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="brand">OCH Creative</div>
+      <h1>Thoughtful digital products<br>for growth and self-discipline.</h1>
+      <p class="subtitle">
+        OCH Creative is an independent digital product brand building tools that support focus,
+        consistency, and personal growth — starting with YouCan.
+      </p>
+
+      <div class="links">
+        <a class="btn btn-primary" href="privacy.html">Privacy Policy</a>
+        <a class="btn btn-secondary" href="contact.html">Contact</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>About</h2>
+        <p>
+          OCH Creative focuses on designing clean, practical, and motivating digital experiences
+          for users who want to build better habits and sustain daily progress.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Product</h2>
+        <p>
+          YouCan is our first product — a self-discipline and growth app designed to make
+          consistency feel rewarding, personal, and achievable.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Support</h2>
+        <p>
+          For product support, privacy-related questions, or business contact, please reach us at
+          <strong>ouhao0731@gmail.com</strong>.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026 OCH Creative. Built with care.
+    </div>
+  </div>
+</body>
+</html>
