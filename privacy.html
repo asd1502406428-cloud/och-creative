@@ -4,88 +4,626 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy - OCH Creative</title>
+  <meta
+    name="description"
+    content="Privacy Policy for YouCan by OCH Creative."
+  />
   <style>
+    :root {
+      --bg: #060816;
+      --bg-2: #0b1023;
+      --panel: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.14);
+      --text: #f5f7ff;
+      --muted: rgba(245, 247, 255, 0.72);
+      --muted-2: rgba(245, 247, 255, 0.52);
+      --accent: #7c5cff;
+      --accent-2: #4cc9f0;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max-width: 1000px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #f7f7fb;
-      color: #1f1f2a;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, "Noto Sans TC", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(124, 92, 255, 0.28), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(76, 201, 240, 0.22), transparent 24%),
+        radial-gradient(circle at 72% 78%, rgba(155, 92, 255, 0.18), transparent 22%),
+        linear-gradient(180deg, #060816 0%, #0a0f20 55%, #0b1023 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.15));
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(6, 8, 22, 0.52);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 24px rgba(124, 92, 255, 0.35);
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text small {
+      color: var(--muted-2);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      padding: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .lang-btn.active {
+      color: white;
+      background: linear-gradient(135deg, rgba(124, 92, 255, 0.95), rgba(76, 201, 240, 0.92));
+      box-shadow: 0 8px 18px rgba(76, 201, 240, 0.22);
+    }
+
+    .ghost-link {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      transition: 0.25s ease;
+    }
+
+    .ghost-link:hover {
+      color: white;
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .page {
+      padding: 60px 0 80px;
+    }
+
+    .hero-card,
+    .policy-card,
+    .footer-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-card {
+      padding: 34px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -100px;
+      top: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,92,255,0.26), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(124, 92, 255, 0.12);
+      border: 1px solid rgba(124, 92, 255, 0.22);
+      color: #d8d0ff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #b7c4ff 38%, #7c5cff 68%, #4cc9f0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.85;
+      max-width: 780px;
+    }
+
+    .policy-card {
+      padding: 28px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .meta-item {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .meta-label {
+      color: var(--muted-2);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .meta-value {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .policy-section {
+      padding: 22px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .policy-section:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .contact-box {
+      margin-top: 14px;
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.14), rgba(76,201,240,0.10));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .contact-email {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      word-break: break-word;
+      color: var(--text);
+    }
+
+    .footer {
+      padding-top: 22px;
+    }
+
+    .footer-card {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-copy {
+      color: var(--muted);
       line-height: 1.8;
     }
-    .wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 56px 24px;
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
-    .card {
-      background: white;
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+    .footer-link {
+      padding: 12px 16px;
+      border-radius: 14px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.2s ease;
     }
-    h1, h2 { color: #1f1f2a; }
-    p, li { color: #55556b; }
-    a { color: #7c5cff; text-decoration: none; }
+
+    .footer-link:hover {
+      color: white;
+      background: rgba(255,255,255,0.09);
+    }
+
+    .zh, .en { display: none; }
+
+    html[lang-mode="zh"] .zh { display: inline; }
+    html[lang-mode="zh"] .zh.block { display: block; }
+    html[lang-mode="en"] .en { display: inline; }
+    html[lang-mode="en"] .en.block { display: block; }
+
+    @media (max-width: 860px) {
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap,
+      .nav-inner {
+        width: min(var(--max-width), calc(100% - 24px));
+      }
+
+      .nav-inner {
+        padding: 14px 0;
+      }
+
+      .brand-text small {
+        display: none;
+      }
+
+      .hero-card,
+      .policy-card,
+      .footer-card {
+        padding: 22px;
+      }
+
+      .contact-email {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>隱私權政策</h1>
-      <p><strong>品牌名稱：</strong>OCH Creative</p>
-      <p><strong>產品名稱：</strong>YouCan</p>
-      <p><strong>生效日期：</strong>2026-03-08</p>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-badge">OC</div>
+        <div class="brand-text">
+          <span>OCH Creative</span>
+          <small>
+            <span class="zh">獨立數位產品品牌</span>
+            <span class="en">Independent Digital Product Brand</span>
+          </small>
+        </div>
+      </a>
 
-      <p>
-        OCH Creative 尊重並重視您的隱私。本隱私權政策說明 YouCan 在您使用本應用程式時，
-        可能蒐集的資料類型、使用方式，以及您的相關權利。
-      </p>
+      <div class="nav-right">
+        <a class="ghost-link" href="index.html">
+          <span class="zh">首頁</span>
+          <span class="en">Home</span>
+        </a>
+        <a class="ghost-link" href="contact.html">
+          <span class="zh">聯絡我們</span>
+          <span class="en">Contact</span>
+        </a>
 
-      <h2>一、我們可能蒐集的資料</h2>
-      <ul>
-        <li>匿名使用者識別資訊</li>
-        <li>應用程式使用行為資料</li>
-        <li>功能互動事件資料</li>
-        <li>使用者建立的任務或挑戰相關資料</li>
-        <li>為改善產品體驗而產生的統計與分析資料</li>
-      </ul>
-
-      <h2>二、資料用途</h2>
-      <ul>
-        <li>提供與維護應用程式功能</li>
-        <li>改善產品體驗、穩定性與效能</li>
-        <li>分析功能使用情況，以優化產品設計</li>
-        <li>處理使用者支援與問題排查</li>
-      </ul>
-
-      <h2>三、資料分享</h2>
-      <p>
-        我們不會任意出售您的個人資料。若有需要，資料可能會在提供基礎技術服務、
-        數據儲存、分析服務或法律要求下進行必要處理。
-      </p>
-
-      <h2>四、資料安全</h2>
-      <p>
-        我們會採取合理措施保護您的資料安全，但無法保證任何網路傳輸或儲存方式絕對安全。
-      </p>
-
-      <h2>五、您的權利</h2>
-      <p>
-        若您對資料使用有疑問，或希望聯繫我們處理隱私相關事項，可透過下方電子郵件與我們聯繫。
-      </p>
-
-      <h2>六、聯絡方式</h2>
-      <p>
-        電子郵件：<a href="mailto:ouhao0731@gmail.com">ouhao0731@gmail.com</a>
-      </p>
-
-      <h2>七、政策更新</h2>
-      <p>
-        我們可能會依產品更新或法規要求調整本政策。更新後版本將發布於本頁面。
-      </p>
-
-      <p><a href="index.html">← 返回首頁</a></p>
+        <div class="lang-switch" aria-label="Language switch">
+          <button class="lang-btn active" id="btn-zh" onclick="setLanguage('zh')">繁中</button>
+          <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
     </div>
-  </div>
+  </nav>
+
+  <main class="wrap page">
+    <section class="hero-card">
+      <div class="eyebrow">
+        <span>✦</span>
+        <span class="zh">隱私與資料說明</span>
+        <span class="en">Privacy & Data Policy</span>
+      </div>
+
+      <h1>
+        <span class="zh block"><span class="gradient-text">隱私權政策</span></span>
+        <span class="en block"><span class="gradient-text">Privacy Policy</span></span>
+      </h1>
+
+      <p class="hero-desc">
+        <span class="zh block">
+          本頁說明 OCH Creative 旗下產品 YouCan自律盲盒在提供服務過程中，
+          可能蒐集的資料類型、使用目的、保護方式，以及使用者的聯絡途徑。
+        </span>
+        <span class="en block">
+          This page explains what types of data may be collected by YouCan Mystery Box, a product by OCH Creative,
+          how that data may be used, how it is protected, and how users can contact us regarding privacy matters.
+        </span>
+      </p>
+    </section>
+
+    <section class="policy-card">
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">
+            <span class="zh">品牌</span>
+            <span class="en">Brand</span>
+          </div>
+          <div class="meta-value">OCH Creative</div>
+        </div>
+
+        <div class="meta-item">
+          <div class="meta-label">
+            <span class="zh">產品</span>
+            <span class="en">Product</span>
+          </div>
+          <div class="meta-value">YouCan自律盲盒</div>
+        </div>
+
+        <div class="meta-item">
+          <div class="meta-label">
+            <span class="zh">生效日期</span>
+            <span class="en">Effective Date</span>
+          </div>
+          <div class="meta-value">2026-03-08</div>
+        </div>
+      </div>
+
+      <div class="policy-section">
+        <h2>
+          <span class="zh">1. 我們可能蒐集的資料</span>
+          <span class="en">1. Data We May Collect</span>
+        </h2>
+        <p class="zh block">
+          為了提供與改善產品功能，我們可能蒐集與處理以下資料：
+        </p>
+        <p class="en block">
+          To provide and improve the product experience, we may collect and process the following types of data:
+        </p>
+        <ul>
+          <li class="zh">匿名使用者識別資訊</li>
+          <li class="en">Anonymous user identifiers</li>
+
+          <li class="zh">應用程式使用行為與互動事件資料</li>
+          <li class="en">App usage behavior and interaction event data</li>
+
+          <li class="zh">使用者建立的任務、挑戰或成長相關資料</li>
+          <li class="en">User-created task, challenge, or growth-related data</li>
+
+          <li class="zh">為優化產品體驗所產生的統計與分析資料</li>
+          <li class="en">Aggregated analytics and statistics used to improve the product</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>
+          <span class="zh">2. 資料用途</span>
+          <span class="en">2. How We Use Data</span>
+        </h2>
+        <ul>
+          <li class="zh">提供、維護與優化應用程式功能</li>
+          <li class="en">To provide, maintain, and improve app functionality</li>
+
+          <li class="zh">分析產品使用情況，以改善體驗與穩定性</li>
+          <li class="en">To analyze product usage in order to improve experience and stability</li>
+
+          <li class="zh">協助排查錯誤、效能問題與技術異常</li>
+          <li class="en">To diagnose bugs, performance issues, and technical problems</li>
+
+          <li class="zh">回應使用者支援、隱私詢問與一般聯絡事項</li>
+          <li class="en">To respond to support requests, privacy inquiries, and general communication</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>
+          <span class="zh">3. 資料分享與揭露</span>
+          <span class="en">3. Data Sharing and Disclosure</span>
+        </h2>
+        <p class="zh block">
+          我們不會任意出售您的個人資料。於必要情況下，資料可能會由提供基礎技術服務、
+          儲存、分析或法律遵循所需的第三方服務處理。
+        </p>
+        <p class="en block">
+          We do not sell your personal data. Where necessary, data may be processed by third-party services
+          that support hosting, storage, analytics, infrastructure, or legal compliance.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2>
+          <span class="zh">4. 資料安全</span>
+          <span class="en">4. Data Security</span>
+        </h2>
+        <p class="zh block">
+          我們會採取合理的管理與技術措施來保護資料安全，但任何網路傳輸與儲存方式皆無法保證絕對安全。
+        </p>
+        <p class="en block">
+          We take reasonable administrative and technical measures to protect data. However, no method of transmission
+          or storage can be guaranteed to be absolutely secure.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2>
+          <span class="zh">5. 使用者權利與聯絡方式</span>
+          <span class="en">5. Your Rights and Contact</span>
+        </h2>
+        <p class="zh block">
+          若您對資料使用方式有任何疑問，或希望就隱私相關事項與我們聯繫，請透過以下電子郵件聯絡。
+        </p>
+        <p class="en block">
+          If you have questions about how your data is used, or if you would like to contact us regarding privacy matters,
+          please reach out via email below.
+        </p>
+
+        <div class="contact-box">
+          <div class="contact-email">
+            <a href="mailto:ouhao0731@gmail.com">ouhao0731@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="policy-section">
+        <h2>
+          <span class="zh">6. 政策更新</span>
+          <span class="en">6. Policy Updates</span>
+        </h2>
+        <p class="zh block">
+          我們可能因產品更新、法規要求或服務調整而更新本隱私權政策。更新後版本將發布於本頁面。
+        </p>
+        <p class="en block">
+          This Privacy Policy may be updated from time to time due to product changes, legal requirements,
+          or service adjustments. The latest version will always be published on this page.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-card">
+        <div class="footer-copy">
+          <strong>OCH Creative</strong><br />
+          <span class="zh">獨立數位產品品牌，專注於成長、自律與更好的使用者體驗。</span>
+          <span class="en">An independent digital product brand focused on growth, self-discipline, and better user experiences.</span>
+        </div>
+
+        <div class="footer-links">
+          <a class="footer-link" href="index.html">
+            <span class="zh">首頁</span>
+            <span class="en">Home</span>
+          </a>
+          <a class="footer-link" href="contact.html">
+            <span class="zh">聯絡方式</span>
+            <span class="en">Contact</span>
+          </a>
+          <a class="footer-link" href="mailto:ouhao0731@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('lang-mode', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+      localStorage.setItem('och_lang', lang);
+
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+
+    (function () {
+      const savedLang = localStorage.getItem('och_lang') || 'zh';
+      setLanguage(savedLang);
+    })();
+  </script>
 </body>
 </html>
