@@ -1,46 +1,614 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - OCH Creative</title>
+  <meta
+    name="description"
+    content="Contact OCH Creative for product support, privacy inquiries, and business communication."
+  />
   <style>
+    :root {
+      --bg: #060816;
+      --bg-2: #0b1023;
+      --panel: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.14);
+      --text: #f5f7ff;
+      --muted: rgba(245, 247, 255, 0.72);
+      --muted-2: rgba(245, 247, 255, 0.52);
+      --accent: #7c5cff;
+      --accent-2: #4cc9f0;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max-width: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #f7f7fb;
-      color: #1f1f2a;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, "Noto Sans TC", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(124, 92, 255, 0.28), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(76, 201, 240, 0.22), transparent 24%),
+        radial-gradient(circle at 72% 78%, rgba(155, 92, 255, 0.18), transparent 22%),
+        linear-gradient(180deg, #060816 0%, #0a0f20 55%, #0b1023 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.15));
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .wrap {
-      max-width: 760px;
+      width: min(var(--max-width), calc(100% - 40px));
       margin: 0 auto;
-      padding: 56px 24px;
+      position: relative;
+      z-index: 1;
     }
-    .card {
-      background: white;
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(6, 8, 22, 0.52);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    h1 { margin-top: 0; }
-    p { color: #55556b; line-height: 1.8; }
-    a { color: #7c5cff; text-decoration: none; }
+
+    .nav-inner {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 24px rgba(124, 92, 255, 0.35);
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text small {
+      color: var(--muted-2);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      padding: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .lang-btn.active {
+      color: white;
+      background: linear-gradient(135deg, rgba(124, 92, 255, 0.95), rgba(76, 201, 240, 0.92));
+      box-shadow: 0 8px 18px rgba(76, 201, 240, 0.22);
+    }
+
+    .ghost-link {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      transition: 0.25s ease;
+    }
+
+    .ghost-link:hover {
+      color: white;
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .page {
+      padding: 60px 0 80px;
+    }
+
+    .hero-card,
+    .contact-card,
+    .info-card,
+    .footer-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-card {
+      padding: 34px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -100px;
+      top: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,92,255,0.26), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(124, 92, 255, 0.12);
+      border: 1px solid rgba(124, 92, 255, 0.22);
+      color: #d8d0ff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #b7c4ff 38%, #7c5cff 68%, #4cc9f0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.85;
+      max-width: 760px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+    }
+
+    .contact-card,
+    .info-card {
+      padding: 26px;
+    }
+
+    .section-label {
+      color: var(--muted-2);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .email-box {
+      padding: 20px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.14), rgba(76,201,240,0.10));
+      border: 1px solid rgba(255,255,255,0.10);
+      margin-top: 16px;
+    }
+
+    .email-label {
+      color: var(--muted-2);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .email-link {
+      display: inline-block;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      word-break: break-word;
+    }
+
+    .desc {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .info-item {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .info-title {
+      font-size: 14px;
+      color: var(--muted-2);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .info-value {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .actions {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--accent) 0%, #6b7cff 45%, var(--accent-2) 100%);
+      box-shadow: 0 14px 28px rgba(94, 92, 255, 0.35);
+    }
+
+    .btn-secondary {
+      color: white;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .footer {
+      padding-top: 22px;
+    }
+
+    .footer-card {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      padding: 12px 16px;
+      border-radius: 14px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: white;
+      background: rgba(255,255,255,0.09);
+    }
+
+    .zh, .en { display: none; }
+
+    html[lang-mode="zh"] .zh { display: inline; }
+    html[lang-mode="zh"] .zh.block { display: block; }
+    html[lang-mode="en"] .en { display: inline; }
+    html[lang-mode="en"] .en.block { display: block; }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap,
+      .nav-inner {
+        width: min(var(--max-width), calc(100% - 24px));
+      }
+
+      .nav-inner {
+        padding: 14px 0;
+      }
+
+      .brand-text small {
+        display: none;
+      }
+
+      .hero-card,
+      .contact-card,
+      .info-card,
+      .footer-card {
+        padding: 22px;
+      }
+
+      .email-link {
+        font-size: 20px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Contact</h1>
-      <p><strong>Brand:</strong> OCH Creative</p>
-      <p><strong>Product:</strong> YouCan</p>
-      <p>
-        For product support, privacy inquiries, or business contact, please email:
-      </p>
-      <p>
-        <a href="mailto:ouhao0731@gmail.com">ouhao0731@gmail.com</a>
-      </p>
-      <p><a href="index.html">← Back to Home</a></p>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-badge">OC</div>
+        <div class="brand-text">
+          <span>OCH Creative</span>
+          <small>
+            <span class="zh">獨立數位產品品牌</span>
+            <span class="en">Independent Digital Product Brand</span>
+          </small>
+        </div>
+      </a>
+
+      <div class="nav-right">
+        <a class="ghost-link" href="index.html">
+          <span class="zh">首頁</span>
+          <span class="en">Home</span>
+        </a>
+        <a class="ghost-link" href="privacy.html">
+          <span class="zh">隱私政策</span>
+          <span class="en">Privacy</span>
+        </a>
+
+        <div class="lang-switch" aria-label="Language switch">
+          <button class="lang-btn active" id="btn-zh" onclick="setLanguage('zh')">繁中</button>
+          <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
     </div>
-  </div>
+  </nav>
+
+  <main class="wrap page">
+    <section class="hero-card">
+      <div class="eyebrow">
+        <span>✦</span>
+        <span class="zh">聯絡與支援</span>
+        <span class="en">Contact & Support</span>
+      </div>
+
+      <h1>
+        <span class="zh block">與 <span class="gradient-text">OCH Creative</span> 聯絡</span>
+        <span class="en block">Get in touch with <span class="gradient-text">OCH Creative</span></span>
+      </h1>
+
+      <p class="hero-desc">
+        <span class="zh block">
+          若您有產品支援需求、隱私相關問題、合作邀請或其他聯絡事項，
+          可透過以下方式與我們聯繫。
+        </span>
+        <span class="en block">
+          For product support, privacy-related questions, collaboration opportunities,
+          or general inquiries, please contact us using the information below.
+        </span>
+      </p>
+    </section>
+
+    <section class="grid">
+      <div class="contact-card">
+        <div class="section-label">
+          <span class="zh">主要聯絡方式</span>
+          <span class="en">Primary Contact</span>
+        </div>
+
+        <p class="desc">
+          <span class="zh block">
+            我們目前主要透過電子郵件處理使用者支援、隱私政策詢問與商務聯絡。
+          </span>
+          <span class="en block">
+            Email is currently our primary channel for product support, privacy inquiries,
+            and business communication.
+          </span>
+        </p>
+
+        <div class="email-box">
+          <div class="email-label">
+            <span class="zh">電子郵件</span>
+            <span class="en">Email</span>
+          </div>
+          <a class="email-link" href="mailto:ouhao0731@gmail.com">ouhao0731@gmail.com</a>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:ouhao0731@gmail.com">
+            <span class="zh">立即寄信</span>
+            <span class="en">Send Email</span>
+          </a>
+          <a class="btn btn-secondary" href="privacy.html">
+            <span class="zh">查看隱私政策</span>
+            <span class="en">View Privacy Policy</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="section-label">
+          <span class="zh">資訊</span>
+          <span class="en">Information</span>
+        </div>
+
+        <div class="info-list">
+          <div class="info-item">
+            <div class="info-title">
+              <span class="zh">品牌名稱</span>
+              <span class="en">Brand</span>
+            </div>
+            <div class="info-value">OCH Creative</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-title">
+              <span class="zh">目前產品</span>
+              <span class="en">Current Product</span>
+            </div>
+            <div class="info-value">YouCan</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-title">
+              <span class="zh">聯絡用途</span>
+              <span class="en">Supported Topics</span>
+            </div>
+            <div class="info-value">
+              <span class="zh block">產品支援、隱私詢問、合作洽詢、一般聯絡</span>
+              <span class="en block">Product support, privacy questions, partnerships, and general inquiries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-card">
+        <div class="footer-copy">
+          <strong>OCH Creative</strong><br />
+          <span class="zh">獨立數位產品品牌，專注於成長、自律與更好的使用者體驗。</span>
+          <span class="en">An independent digital product brand focused on growth, self-discipline, and better user experiences.</span>
+        </div>
+
+        <div class="footer-links">
+          <a class="footer-link" href="index.html">
+            <span class="zh">首頁</span>
+            <span class="en">Home</span>
+          </a>
+          <a class="footer-link" href="privacy.html">
+            <span class="zh">隱私政策</span>
+            <span class="en">Privacy Policy</span>
+          </a>
+          <a class="footer-link" href="mailto:ouhao0731@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('lang-mode', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+      localStorage.setItem('och_lang', lang);
+
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+
+    (function () {
+      const savedLang = localStorage.getItem('och_lang') || 'zh';
+      setLanguage(savedLang);
+    })();
+  </script>
 </body>
 </html>
