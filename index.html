@@ -22,6 +22,7 @@
       --accent-2: #4cc9f0;
       --accent-3: #9b5cff;
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.22);
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 14px;
@@ -68,6 +69,11 @@
       text-decoration: none;
     }
 
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
     .wrap {
       width: min(var(--max-width), calc(100% - 40px));
       margin: 0 auto;
@@ -90,34 +96,46 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 0;
+      padding: 16px 0;
       gap: 16px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
+      gap: 14px;
+      min-width: 0;
     }
 
-    .brand-badge {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 10px 24px rgba(124, 92, 255, 0.35);
+    .brand-logo-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.22), rgba(76,201,240,0.18));
+      border: 1px solid rgba(255,255,255,0.12);
       display: grid;
       place-items: center;
-      font-size: 15px;
-      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(124, 92, 255, 0.20);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
       line-height: 1.1;
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      font-size: 15px;
+      letter-spacing: 0.02em;
     }
 
     .brand-text small {
@@ -126,6 +144,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-weight: 600;
+      margin-top: 4px;
     }
 
     .nav-right {
@@ -180,13 +199,13 @@
     }
 
     .hero {
-      padding: 78px 0 34px;
+      padding: 76px 0 30px;
       position: relative;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 28px;
       align-items: stretch;
     }
@@ -194,7 +213,9 @@
     .hero-left,
     .hero-right-card,
     .section-card,
-    .product-card {
+    .product-showcase-card,
+    .next-product-card,
+    .footer-card {
       background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
@@ -203,7 +224,7 @@
     }
 
     .hero-left {
-      padding: 38px;
+      padding: 40px;
       position: relative;
       overflow: hidden;
     }
@@ -319,7 +340,7 @@
       padding: 24px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 18px;
       min-height: 100%;
       overflow: hidden;
       position: relative;
@@ -342,13 +363,15 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
-    .product-card {
+    .product-showcase-card {
       padding: 22px;
       border-radius: 24px;
       background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.07));
+      position: relative;
+      overflow: hidden;
     }
 
     .product-top {
@@ -373,6 +396,42 @@
       color: #d9f8ff;
       background: rgba(76, 201, 240, 0.12);
       border: 1px solid rgba(76, 201, 240, 0.18);
+      white-space: nowrap;
+    }
+
+    .product-hero {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .product-icon-shell {
+      width: 112px;
+      height: 112px;
+      border-radius: 28px;
+      padding: 10px;
+      background:
+        linear-gradient(145deg, rgba(124,92,255,0.26), rgba(76,201,240,0.16));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 16px 34px rgba(124, 92, 255, 0.18);
+      display: grid;
+      place-items: center;
+    }
+
+    .product-icon-shell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .product-desc {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+      margin: 0;
     }
 
     .metric-grid {
@@ -399,19 +458,28 @@
     }
 
     .metric-value {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 800;
       letter-spacing: -0.03em;
+      line-height: 1.35;
     }
 
-    .product-desc {
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 15px;
+    .contact-card {
+      padding: 20px 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-email {
+      margin: 12px 0 0;
+      font-weight: 800;
+      font-size: 18px;
+      word-break: break-word;
     }
 
     .section {
-      padding: 20px 0 24px;
+      padding: 18px 0 24px;
     }
 
     .section-head {
@@ -474,16 +542,110 @@
       font-size: 15px;
     }
 
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .next-product-card,
+    .product-showcase-grid-card {
+      padding: 24px;
+      min-height: 320px;
+    }
+
+    .product-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #d8d0ff;
+      background: rgba(124, 92, 255, 0.12);
+      border: 1px solid rgba(124, 92, 255, 0.22);
+    }
+
+    .product-grid-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .mini-app-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      padding: 6px;
+      background: linear-gradient(145deg, rgba(124,92,255,0.26), rgba(76,201,240,0.16));
+      border: 1px solid rgba(255,255,255,0.12);
+      flex-shrink: 0;
+    }
+
+    .mini-app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .mini-app-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .mini-app-sub {
+      margin-top: 6px;
+      color: var(--muted-2);
+      font-size: 13px;
+    }
+
+    .next-placeholder {
+      margin-top: 18px;
+      border-radius: 24px;
+      min-height: 170px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px dashed rgba(255,255,255,0.18);
+      text-align: center;
+      padding: 18px;
+    }
+
+    .next-placeholder img {
+      max-width: 120px;
+      opacity: 0.86;
+      margin: 0 auto 14px;
+    }
+
+    .coming-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .coming-desc {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+      margin: 0;
+      max-width: 320px;
+    }
+
     .footer {
       padding: 40px 0 70px;
     }
 
     .footer-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.05));
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 24px;
       padding: 28px;
-      box-shadow: var(--shadow);
       display: flex;
       justify-content: space-between;
       gap: 20px;
@@ -539,7 +701,8 @@
 
     @media (max-width: 980px) {
       .hero-grid,
-      .cards {
+      .cards,
+      .products-grid {
         grid-template-columns: 1fr;
       }
 
@@ -550,7 +713,9 @@
       .hero-left,
       .hero-right-card,
       .section-card,
-      .footer-card {
+      .footer-card,
+      .product-showcase-grid-card,
+      .next-product-card {
         padding: 22px;
       }
 
@@ -610,6 +775,18 @@
         grid-template-columns: 1fr;
       }
 
+      .product-hero,
+      .product-grid-top {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .product-icon-shell,
+      .mini-app-icon {
+        width: 88px;
+        height: 88px;
+      }
+
       .footer-card {
         align-items: flex-start;
       }
@@ -619,10 +796,12 @@
 <body>
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="brand">
-        <div class="brand-badge">OC</div>
+      <a href="index.html" class="brand">
+        <div class="brand-logo-wrap">
+          <img src="images/och-logo.png" alt="OCH Creative Logo" />
+        </div>
         <div class="brand-text">
-          <span>OCH Creative</span>
+          <strong>OCH Creative</strong>
           <small>
             <span class="zh">獨立數位產品品牌</span>
             <span class="en">Independent Digital Product Brand</span>
@@ -631,6 +810,10 @@
       </a>
 
       <div class="nav-right">
+        <a class="ghost-link" href="#products">
+          <span class="zh">產品</span>
+          <span class="en">Products</span>
+        </a>
         <a class="ghost-link" href="privacy.html">
           <span class="zh">隱私政策</span>
           <span class="en">Privacy</span>
@@ -659,26 +842,26 @@
           </div>
 
           <h1>
-            <span class="zh block">打造更有動能、<span class="gradient-text">更有未來感</span>的數位產品。</span>
-            <span class="en block">Building <span class="gradient-text">future-ready</span> digital products for growth, focus, and momentum.</span>
+            <span class="zh block">打造更有動能、<span class="gradient-text">更有品牌感</span>的數位產品。</span>
+            <span class="en block">Building <span class="gradient-text">future-ready</span> digital products with strong brand identity.</span>
           </h1>
 
           <p class="hero-desc">
             <span class="zh block">
               OCH Creative 專注於打造兼具設計感、科技感與實用性的數位產品，
-              讓成長、自律與日常進步不只是功能，而是一種更流暢且更有回饋感的體驗。
+              以更細緻的視覺語言、互動節奏與激勵設計，讓成長與自律變成更有吸引力的體驗。
             </span>
             <span class="en block">
               OCH Creative builds digital products that combine thoughtful design, modern technology,
-              and practical utility — turning growth, consistency, and self-discipline into experiences
-              that feel intuitive, rewarding, and sustainable.
+              and practical utility — using stronger visual identity, interaction rhythm, and product motivation
+              to make growth and consistency feel more engaging and sustainable.
             </span>
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="privacy.html">
-              <span class="zh">查看隱私政策</span>
-              <span class="en">View Privacy Policy</span>
+            <a class="btn btn-primary" href="#products">
+              <span class="zh">查看產品</span>
+              <span class="en">Explore Products</span>
             </a>
             <a class="btn btn-secondary" href="contact.html">
               <span class="zh">聯絡 OCH Creative</span>
@@ -689,8 +872,8 @@
           <div class="hero-meta">
             <div class="meta-chip">
               <span>●</span>
-              <span class="zh">品牌首頁已上線</span>
-              <span class="en">Brand site is live</span>
+              <span class="zh">品牌官網已上線</span>
+              <span class="en">Brand website is live</span>
             </div>
             <div class="meta-chip">
               <span>●</span>
@@ -699,8 +882,8 @@
             </div>
             <div class="meta-chip">
               <span>●</span>
-              <span class="zh">個人開發者品牌</span>
-              <span class="en">Independent founder brand</span>
+              <span class="zh">持續擴展產品矩陣</span>
+              <span class="en">Expanding product lineup</span>
             </div>
           </div>
         </div>
@@ -708,29 +891,38 @@
         <div class="hero-right-card">
           <div>
             <div class="panel-label">
-              <span class="zh">產品聚焦</span>
-              <span class="en">Product Focus</span>
+              <span class="zh">Featured Product</span>
+              <span class="en">Featured Product</span>
             </div>
 
-            <div class="product-card">
+            <div class="product-showcase-card">
               <div class="product-top">
-                <div class="product-name">YouCan自律盲盒</div>
+                <div class="product-name">
+                  <span class="zh">YouCan自律盲盒</span>
+                  <span class="en">YouCan Mystery Box</span>
+                </div>
                 <div class="status-pill">
-                  <span class="zh">成長中</span>
+                  <span class="zh">持續進化中</span>
                   <span class="en">Evolving</span>
                 </div>
               </div>
 
-              <p class="product-desc">
-                <span class="zh block">
-                  一款聚焦自律、習慣養成與個人成長體驗的產品，
-                  透過更有設計感的互動與回饋機制，幫助使用者維持日常節奏。
-                </span>
-                <span class="en block">
-                  A self-discipline and growth product designed to make consistency more engaging,
-                  personal, and rewarding through thoughtful interaction design.
-                </span>
-              </p>
+              <div class="product-hero">
+                <div class="product-icon-shell">
+                  <img src="images/youcan-icon.png" alt="YouCan Mystery Box App Icon" />
+                </div>
+
+                <p class="product-desc">
+                  <span class="zh block">
+                    一款聚焦自律、習慣養成與個人成長體驗的產品，
+                    透過遊戲化回饋、成長視覺與更有節奏的互動設計，幫助使用者穩定前進。
+                  </span>
+                  <span class="en block">
+                    A growth-focused product designed around self-discipline, habit building,
+                    and motivating feedback systems that help users move forward with consistency.
+                  </span>
+                </p>
+              </div>
 
               <div class="metric-grid">
                 <div class="metric-card">
@@ -739,8 +931,8 @@
                     <span class="en">Core Direction</span>
                   </div>
                   <div class="metric-value">
-                    <span class="zh">成長體驗</span>
-                    <span class="en">Growth UX</span>
+                    <span class="zh">自律 × 成長體驗</span>
+                    <span class="en">Discipline × Growth UX</span>
                   </div>
                 </div>
 
@@ -758,22 +950,20 @@
             </div>
           </div>
 
-          <div style="margin-top: 22px;">
+          <div class="contact-card">
             <div class="panel-label">
-              <span class="zh">聯絡資訊</span>
+              <span class="zh">Contact</span>
               <span class="en">Contact</span>
             </div>
-            <div class="product-card">
-              <p class="product-desc" style="margin: 0;">
-                <span class="zh block">
-                  若有產品支援、合作洽詢或隱私相關問題，歡迎透過電子郵件聯絡：
-                </span>
-                <span class="en block">
-                  For product support, partnership inquiries, or privacy-related questions, contact:
-                </span>
-              </p>
-              <p style="margin: 14px 0 0; font-weight: 800; font-size: 18px;">ouhao0731@gmail.com</p>
-            </div>
+            <p class="product-desc" style="margin: 0;">
+              <span class="zh block">
+                若有產品支援、合作洽詢或隱私相關問題，歡迎透過電子郵件聯絡：
+              </span>
+              <span class="en block">
+                For product support, partnership inquiries, or privacy-related questions, contact:
+              </span>
+            </p>
+            <p class="contact-email">ouhao0731@gmail.com</p>
           </div>
         </div>
       </div>
@@ -788,12 +978,12 @@
           </h2>
           <p class="section-subtitle">
             <span class="zh block">
-              OCH Creative 以「成長、自律、專注與日常動能」為核心，
-              持續打造兼具產品思維與品牌氣質的數位體驗。
+              OCH Creative 以成長、自律、專注與日常動能為核心，
+              持續打造兼具產品思維與品牌辨識度的數位體驗。
             </span>
             <span class="en block">
-              OCH Creative focuses on growth, self-discipline, focus, and sustained momentum —
-              building digital experiences that combine product thinking with strong brand presence.
+              OCH Creative focuses on growth, self-discipline, focus, and momentum —
+              building digital experiences with both product thinking and strong brand identity.
             </span>
           </p>
         </div>
@@ -808,12 +998,11 @@
           </h3>
           <p class="card-desc">
             <span class="zh block">
-              不只是把功能做出來，而是從視覺、節奏、互動與情緒回饋，
-              打造更完整的使用者體驗。
+              不只是做出功能，而是把品牌語言、視覺層次與互動節奏一起設計進去。
             </span>
             <span class="en block">
-              We do more than ship features. We shape visual language, interaction rhythm,
-              and emotional feedback into a cohesive user experience.
+              We build more than features — we design visual language, product rhythm,
+              and brand consistency into the full experience.
             </span>
           </p>
         </div>
@@ -826,12 +1015,11 @@
           </h3>
           <p class="card-desc">
             <span class="zh block">
-              我們關注使用者如何持續行動、建立習慣、維持動機，
-              讓產品真正成為日常進步的載體。
+              我們關注如何讓使用者持續行動、建立習慣、維持動機，讓產品真正參與日常進步。
             </span>
             <span class="en block">
-              We design for sustained action, habit formation, and motivation —
-              turning products into practical systems for everyday progress.
+              We design for sustained action, habit formation, and user motivation —
+              helping products become part of everyday progress.
             </span>
           </p>
         </div>
@@ -844,14 +1032,112 @@
           </h3>
           <p class="card-desc">
             <span class="zh block">
-              以漸層、光感、層次與極簡科技視覺建立品牌辨識，
-              讓網站與產品都呈現一致的未來感。
+              透過漸層、光感、玻璃層次與極簡科技視覺，建立一致且具有辨識度的品牌氛圍。
             </span>
             <span class="en block">
-              We use gradients, light, depth, and minimal tech aesthetics
-              to build a recognizable and future-facing brand language.
+              We use gradients, glow, glass layers, and minimal tech aesthetics
+              to create a clear and recognizable brand atmosphere.
             </span>
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">
+            <span class="zh">產品矩陣</span>
+            <span class="en">Product Lineup</span>
+          </h2>
+          <p class="section-subtitle">
+            <span class="zh block">
+              從 YouCan 自律盲盒出發，OCH Creative 將持續推出更多圍繞成長、動機與日常效率的產品。
+            </span>
+            <span class="en block">
+              Starting with YouCan Mystery Box, OCH Creative will continue expanding into products
+              centered on growth, motivation, and everyday effectiveness.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-showcase-grid-card">
+          <div class="product-tag">
+            <span class="zh">Current Product</span>
+            <span class="en">Current Product</span>
+          </div>
+
+          <div class="product-grid-top">
+            <div class="mini-app-icon">
+              <img src="images/youcan-icon.png" alt="YouCan App Icon" />
+            </div>
+            <div>
+              <h3 class="mini-app-title">
+                <span class="zh">YouCan自律盲盒</span>
+                <span class="en">YouCan Mystery Box</span>
+              </h3>
+              <div class="mini-app-sub">
+                <span class="zh">自律 × 習慣養成 × 成長體驗</span>
+                <span class="en">Discipline × Habits × Growth Experience</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            <span class="zh block">
+              以盲盒機制、成長回饋、日常任務與激勵設計為核心，
+              讓使用者把自律轉化成更有趣、更願意持續的生活節奏。
+            </span>
+            <span class="en block">
+              Built around mystery-box mechanics, growth feedback, daily tasks, and motivational design,
+              YouCan turns discipline into a more engaging and sustainable rhythm.
+            </span>
+          </p>
+        </div>
+
+        <div class="next-product-card">
+          <div class="product-tag">
+            <span class="zh">Next Product</span>
+            <span class="en">Next Product</span>
+          </div>
+
+          <h3 class="mini-app-title" style="margin-bottom: 10px;">
+            <span class="zh">下一款產品預告</span>
+            <span class="en">Next Product Preview</span>
+          </h3>
+
+          <p class="card-desc">
+            <span class="zh block">
+              這裡將作為下一款產品的介紹區塊，未來可放置產品名稱、定位、核心價值與視覺主圖。
+            </span>
+            <span class="en block">
+              This section is reserved for the next product launch, including its name,
+              positioning, core value proposition, and hero visual.
+            </span>
+          </p>
+
+          <div class="next-placeholder">
+            <!-- 若有图片可取消下面注释 -->
+            <!-- <img src="images/next-product-placeholder.png" alt="Next Product Preview" /> -->
+
+            <div>
+              <div class="coming-title">
+                <span class="zh">Coming Next</span>
+                <span class="en">Coming Next</span>
+              </div>
+              <p class="coming-desc">
+                <span class="zh block">
+                  預留中。未來可替換為新產品 icon、預覽圖或一句更有吸引力的產品標語。
+                </span>
+                <span class="en block">
+                  Reserved for your next launch. Replace this with a future app icon,
+                  visual preview, or a stronger product teaser.
+                </span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
