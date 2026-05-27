@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" lang-mode="zh">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YouCan 自律盲盒｜隱私權政策</title>
-  <meta name="description" content="YouCan 自律盲盒隱私權政策，說明資料收集、使用、保存與聯絡方式。" />
+  <title>YouCan Mystery Box｜Privacy Policy</title>
+  <meta name="description" content="YouCan Mystery Box privacy policy, including data collection, usage, retention, and contact information." />
   <style>
     :root {
       --bg: #fff8ef;
@@ -138,6 +138,51 @@
       font-size: 14px;
       font-weight: 950;
     }
+
+
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      padding: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(139,124,246,0.14);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.52);
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 900;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .lang-btn.active {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--blue));
+      box-shadow: 0 8px 18px rgba(139, 124, 246, 0.26);
+    }
+
+    .zh,
+    .en { display: none; }
+
+    html[lang-mode="zh"] .zh { display: inline; }
+    html[lang-mode="zh"] .zh.block { display: block; }
+    html[lang-mode="en"] .en { display: inline; }
+    html[lang-mode="en"] .en.block { display: block; }
 
     .back-home {
       display: inline-flex;
@@ -680,6 +725,7 @@
     @media (max-width: 720px) {
       .page { width: min(100% - 24px, var(--max)); padding: 12px 0 48px; }
       .topbar { align-items: flex-start; flex-direction: column; position: relative; top: auto; }
+      .top-actions { width: 100%; justify-content: space-between; }
       .hero-shell { border-radius: 28px; }
       .hero { padding: 38px 20px 28px; }
       .hero-card { min-height: auto; }
@@ -701,30 +747,43 @@
         <span class="brand-mark">OCH</span>
         <span>OCH Creative</span>
       </a>
-      <a class="back-home" href="index.html">← 回到首頁</a>
+      <div class="top-actions">
+        <a class="back-home" href="index.html">
+          <span class="zh">← 回到首頁</span>
+          <span class="en">← Back Home</span>
+        </a>
+        <div class="lang-switch" aria-label="Language switch">
+          <button class="lang-btn active" id="btn-zh" type="button" onclick="setLanguage('zh')">繁中</button>
+          <button class="lang-btn" id="btn-en" type="button" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
     </div>
 
     <header class="hero-shell reveal visible">
       <div class="hero">
         <div class="hero-copy">
           <div class="eyebrow"><span class="eyebrow-dot"></span>YouCan · Privacy Policy</div>
-          <h1>隱私權政策</h1>
+          <h1>
+            <span class="zh">隱私權政策</span>
+            <span class="en">Privacy Policy</span>
+          </h1>
           <p class="hero-subtitle">
-            YouCan 自律盲盒重視您的資料安全與資訊透明。本頁面說明您在使用本應用程式時，我們可能收集的資料類型、使用方式、保存方式，以及您可如何與開發人員聯絡。
+            <span class="zh block">YouCan 自律盲盒重視您的資料安全與資訊透明。本頁面說明您在使用本應用程式時，我們可能收集的資料類型、使用方式、保存方式，以及您可如何與開發人員聯絡。</span>
+            <span class="en block">YouCan Mystery Box values data security and transparency. This page explains what types of data may be collected when you use the app, how the data is used and retained, and how you can contact the developer.</span>
           </p>
           <div class="meta-row">
-            <div class="meta-pill">最後更新日期：2026 年 3 月 8 日</div>
-            <div class="meta-pill">開發人員：Howard Ou</div>
-            <div class="meta-pill">聯絡信箱：ouhao0731@gmail.com</div>
+            <div class="meta-pill"><span class="zh">最後更新日期：2026 年 3 月 8 日</span><span class="en">Last updated: March 8, 2026</span></div>
+            <div class="meta-pill"><span class="zh">開發人員：Howard Ou</span><span class="en">Developer: Howard Ou</span></div>
+            <div class="meta-pill"><span class="zh">聯絡信箱：</span><span class="en">Contact: </span>ouhao0731@gmail.com</div>
           </div>
         </div>
 
         <div class="hero-card" aria-label="Policy summary card">
-          <h2 class="policy-mini-title">政策重點</h2>
+          <h2 class="policy-mini-title"><span class="zh">政策重點</span><span class="en">Policy Highlights</span></h2>
           <ul class="policy-checks">
-            <li><span class="check-dot">✓</span><span>不出售您的個人資料。</span></li>
-            <li><span class="check-dot">✓</span><span>資料處理以目前版本實際功能為限。</span></li>
-            <li><span class="check-dot">✓</span><span>可透過電子郵件聯絡刪除或詢問資料處理方式。</span></li>
+            <li><span class="check-dot">✓</span><span class="zh">不出售您的個人資料。</span><span class="en">We do not sell your personal data.</span></li>
+            <li><span class="check-dot">✓</span><span class="zh">資料處理以目前版本實際功能為限。</span><span class="en">Data processing is limited to features available in the current version.</span></li>
+            <li><span class="check-dot">✓</span><span class="zh">可透過電子郵件聯絡刪除或詢問資料處理方式。</span><span class="en">You may contact us by email to ask about data handling or deletion.</span></li>
           </ul>
         </div>
       </div>
@@ -732,20 +791,21 @@
 
     <div class="main-grid">
       <aside class="sidebar reveal">
-        <div class="sidebar-title">內容索引</div>
+        <div class="sidebar-title"><span class="zh">內容索引</span><span class="en">Contents</span></div>
         <nav class="toc" id="toc">
-          <a href="#data"><span class="toc-index">1</span><span>我們可能收集的資料</span></a>
-          <a href="#usage"><span class="toc-index">2</span><span>我們如何使用資料</span></a>
-          <a href="#sharing"><span class="toc-index">3</span><span>資料分享與第三方服務</span></a>
-          <a href="#security"><span class="toc-index">4</span><span>資料傳輸與安全</span></a>
-          <a href="#retention"><span class="toc-index">5</span><span>資料保存與刪除</span></a>
-          <a href="#permissions"><span class="toc-index">6</span><span>權限使用說明</span></a>
-          <a href="#children"><span class="toc-index">7</span><span>兒童隱私</span></a>
-          <a href="#updates"><span class="toc-index">8</span><span>政策更新</span></a>
-          <a href="#contact"><span class="toc-index">9</span><span>聯絡方式</span></a>
+          <a href="#data"><span class="toc-index">1</span><span class="zh">我們可能收集的資料</span><span class="en">Data We May Collect</span></a>
+          <a href="#usage"><span class="toc-index">2</span><span class="zh">我們如何使用資料</span><span class="en">How We Use Data</span></a>
+          <a href="#sharing"><span class="toc-index">3</span><span class="zh">資料分享與第三方服務</span><span class="en">Sharing and Third-party Services</span></a>
+          <a href="#security"><span class="toc-index">4</span><span class="zh">資料傳輸與安全</span><span class="en">Data Transfer and Security</span></a>
+          <a href="#retention"><span class="toc-index">5</span><span class="zh">資料保存與刪除</span><span class="en">Retention and Deletion</span></a>
+          <a href="#permissions"><span class="toc-index">6</span><span class="zh">權限使用說明</span><span class="en">Permission Use</span></a>
+          <a href="#children"><span class="toc-index">7</span><span class="zh">兒童隱私</span><span class="en">Children’s Privacy</span></a>
+          <a href="#updates"><span class="toc-index">8</span><span class="zh">政策更新</span><span class="en">Policy Updates</span></a>
+          <a href="#contact"><span class="toc-index">9</span><span class="zh">聯絡方式</span><span class="en">Contact</span></a>
         </nav>
         <div class="sidebar-note">
-          本隱私權政策應與目前版本實際提供之功能相對應，並不以未來尚未上線之功能作為資料收集依據。
+          <span class="zh block">本隱私權政策應與目前版本實際提供之功能相對應，並不以未來尚未上線之功能作為資料收集依據。</span>
+          <span class="en block">This privacy policy corresponds to the features currently available in the app. Future features that are not yet released are not used as the basis for additional data collection.</span>
         </div>
       </aside>
 
@@ -753,14 +813,14 @@
         <section class="policy-section" id="data">
           <div class="section-number">01</div>
           <div>
-            <h2>一、我們可能收集的資料</h2>
-            <p>當您使用 YouCan 自律盲盒時，我們可能收集下列資料類型：</p>
+            <h2><span class="zh">一、我們可能收集的資料</span><span class="en">1. Data We May Collect</span></h2>
+            <p><span class="zh">當您使用 YouCan 自律盲盒時，我們可能收集下列資料類型：</span><span class="en">When you use YouCan Mystery Box, we may collect the following types of data:</span></p>
             <ul>
-              <li><strong>使用者識別資料：</strong>例如匿名使用者 ID，用於識別同一安裝實例、維持功能狀態、同步資料與提供應用程式功能。</li>
-              <li><strong>名稱或暱稱：</strong>若您主動於應用程式中輸入名稱、暱稱或類似資訊，我們可能會儲存該資料。</li>
-              <li><strong>應用程式活動與互動資料：</strong>例如開啟應用程式、抽取盲盒、完成任務、領取獎勵、點擊功能、頁面互動與其他使用行為事件。</li>
-              <li><strong>使用者提供內容：</strong>例如您建立的自訂挑戰、任務名稱、任務描述或其他由您主動輸入的內容。</li>
-              <li><strong>統計與分析資料：</strong>我們可能根據前述資料建立聚合分析、產品優化與服務改善所需的衍生資料。</li>
+              <li><span class="zh"><strong>使用者識別資料：</strong>例如匿名使用者 ID，用於識別同一安裝實例、維持功能狀態、同步資料與提供應用程式功能。</span><span class="en"><strong>User identification data:</strong> such as an anonymous user ID, used to identify the same app installation, maintain feature status, synchronize data, and provide app functionality.</span></li>
+              <li><span class="zh"><strong>名稱或暱稱：</strong>若您主動於應用程式中輸入名稱、暱稱或類似資訊，我們可能會儲存該資料。</span><span class="en"><strong>Name or nickname:</strong> if you voluntarily enter a name, nickname, or similar information in the app, we may store that information.</span></li>
+              <li><span class="zh"><strong>應用程式活動與互動資料：</strong>例如開啟應用程式、抽取盲盒、完成任務、領取獎勵、點擊功能、頁面互動與其他使用行為事件。</span><span class="en"><strong>App activity and interaction data:</strong> such as app opens, mystery box draws, task completion, reward claims, feature clicks, page interactions, and other usage events.</span></li>
+              <li><span class="zh"><strong>使用者提供內容：</strong>例如您建立的自訂挑戰、任務名稱、任務描述或其他由您主動輸入的內容。</span><span class="en"><strong>User-provided content:</strong> such as custom challenges, task names, task descriptions, or other content you voluntarily enter.</span></li>
+              <li><span class="zh"><strong>統計與分析資料：</strong>我們可能根據前述資料建立聚合分析、產品優化與服務改善所需的衍生資料。</span><span class="en"><strong>Statistics and analytics data:</strong> we may create aggregated or derived data based on the above information for product optimization and service improvement.</span></li>
             </ul>
           </div>
         </section>
@@ -768,18 +828,19 @@
         <section class="policy-section" id="usage">
           <div class="section-number">02</div>
           <div>
-            <h2>二、我們如何使用資料</h2>
-            <p>我們可能基於以下目的使用資料：</p>
+            <h2><span class="zh">二、我們如何使用資料</span><span class="en">2. How We Use Data</span></h2>
+            <p><span class="zh">我們可能基於以下目的使用資料：</span><span class="en">We may use data for the following purposes:</span></p>
             <ul>
-              <li>提供、維護與改善本應用程式的核心功能；</li>
-              <li>保存任務進度、成長紀錄、獎勵狀態與互動結果；</li>
-              <li>分析使用情況，以優化功能設計、穩定性與整體使用體驗；</li>
-              <li>避免異常操作、重複領取或其他影響系統正常運作的情形；</li>
-              <li>在必要情況下履行安全性、服務維護或法規遵循需求。</li>
+              <li><span class="zh">提供、維護與改善本應用程式的核心功能；</span><span class="en">to provide, maintain, and improve the core features of the app;</span></li>
+              <li><span class="zh">保存任務進度、成長紀錄、獎勵狀態與互動結果；</span><span class="en">to save task progress, growth records, reward status, and interaction results;</span></li>
+              <li><span class="zh">分析使用情況，以優化功能設計、穩定性與整體使用體驗；</span><span class="en">to analyze usage in order to improve feature design, stability, and overall user experience;</span></li>
+              <li><span class="zh">避免異常操作、重複領取或其他影響系統正常運作的情形；</span><span class="en">to prevent abnormal operations, duplicate claims, or other issues that may affect normal system operation;</span></li>
+              <li><span class="zh">在必要情況下履行安全性、服務維護或法規遵循需求。</span><span class="en">to meet security, service maintenance, or legal compliance needs when necessary.</span></li>
             </ul>
             <div class="info-box">
-              <strong>使用原則</strong>
-              我們僅會依據目前版本中已實際提供的功能處理資料，不會因未來可能推出但尚未上線的功能，而額外收集不必要資訊。
+              <strong><span class="zh">使用原則</span><span class="en">Usage Principle</span></strong>
+              <span class="zh block">我們僅會依據目前版本中已實際提供的功能處理資料，不會因未來可能推出但尚未上線的功能，而額外收集不必要資訊。</span>
+              <span class="en block">We only process data based on features that are actually available in the current version. We do not collect unnecessary information for future features that have not yet been released.</span>
             </div>
           </div>
         </section>
@@ -787,74 +848,87 @@
         <section class="policy-section" id="sharing">
           <div class="section-number">03</div>
           <div>
-            <h2>三、資料分享與第三方服務</h2>
-            <p>我們不會出售您的個人資料。為提供本應用程式之服務，我們可能使用第三方雲端基礎設施、資料庫或後端技術服務，以協助資料處理與儲存。</p>
-            <p>這些服務提供者僅於提供服務所必要的範圍內處理資料，並不代表我們將您的資料出售、出租或用於與本應用程式無關之用途。</p>
+            <h2><span class="zh">三、資料分享與第三方服務</span><span class="en">3. Data Sharing and Third-party Services</span></h2>
+            <p><span class="zh">我們不會出售您的個人資料。為提供本應用程式之服務，我們可能使用第三方雲端基礎設施、資料庫或後端技術服務，以協助資料處理與儲存。</span><span class="en">We do not sell your personal data. To provide the app service, we may use third-party cloud infrastructure, databases, or backend technology services to support data processing and storage.</span></p>
+            <p><span class="zh">這些服務提供者僅於提供服務所必要的範圍內處理資料，並不代表我們將您的資料出售、出租或用於與本應用程式無關之用途。</span><span class="en">These service providers process data only within the scope necessary to provide their services. This does not mean that we sell, rent, or use your data for purposes unrelated to this app.</span></p>
           </div>
         </section>
 
         <section class="policy-section" id="security">
           <div class="section-number">04</div>
           <div>
-            <h2>四、資料傳輸與安全</h2>
-            <p>我們採取合理之技術與管理措施保護資料安全，並在適用情況下透過加密連線傳輸資料。然而，任何網際網路傳輸或電子儲存方式，均無法保證絕對安全。</p>
+            <h2><span class="zh">四、資料傳輸與安全</span><span class="en">4. Data Transfer and Security</span></h2>
+            <p><span class="zh">我們採取合理之技術與管理措施保護資料安全，並在適用情況下透過加密連線傳輸資料。然而，任何網際網路傳輸或電子儲存方式，均無法保證絕對安全。</span><span class="en">We use reasonable technical and administrative measures to protect data security and, where applicable, transmit data through encrypted connections. However, no method of internet transmission or electronic storage can be guaranteed to be completely secure.</span></p>
           </div>
         </section>
 
         <section class="policy-section" id="retention">
           <div class="section-number">05</div>
           <div>
-            <h2>五、資料保存與刪除</h2>
-            <p>我們會在提供功能、分析服務品質、維護系統穩定性及履行法律義務所需之期間內保存資料。</p>
-            <p>若您希望刪除與您相關的資料，可透過電子郵件與我們聯絡。由於本應用程式目前可能採匿名識別方式運作，建議您於來信時提供可協助辨識之資訊，例如名稱、相關使用情境、畫面截圖或其他可供定位資料之說明。</p>
+            <h2><span class="zh">五、資料保存與刪除</span><span class="en">5. Data Retention and Deletion</span></h2>
+            <p><span class="zh">我們會在提供功能、分析服務品質、維護系統穩定性及履行法律義務所需之期間內保存資料。</span><span class="en">We retain data for as long as necessary to provide features, analyze service quality, maintain system stability, and comply with legal obligations.</span></p>
+            <p><span class="zh">若您希望刪除與您相關的資料，可透過電子郵件與我們聯絡。由於本應用程式目前可能採匿名識別方式運作，建議您於來信時提供可協助辨識之資訊，例如名稱、相關使用情境、畫面截圖或其他可供定位資料之說明。</span><span class="en">If you would like to delete data related to you, you may contact us by email. Because the app may currently operate through anonymous identifiers, we recommend including information that helps us locate the relevant data, such as your name, usage context, screenshots, or other identifying details.</span></p>
           </div>
         </section>
 
         <section class="policy-section" id="permissions">
           <div class="section-number">06</div>
           <div>
-            <h2>六、權限使用說明</h2>
-            <p>本應用程式僅會於功能需要時請求必要權限。若特定版本使用裝置權限，該權限將僅用於對應功能，不會超出該功能目的進行不必要之資料蒐集。</p>
-            <p>若您目前版本仍包含麥克風權限，其用途僅限於應用程式對應功能，不會在未經您知情與授權之情況下進行錄音、儲存或上傳音訊內容。</p>
+            <h2><span class="zh">六、權限使用說明</span><span class="en">6. Permission Use</span></h2>
+            <p><span class="zh">本應用程式僅會於功能需要時請求必要權限。若特定版本使用裝置權限，該權限將僅用於對應功能，不會超出該功能目的進行不必要之資料蒐集。</span><span class="en">The app only requests permissions when they are necessary for a feature. If a specific version uses device permissions, those permissions are used only for their corresponding features and not for unnecessary data collection beyond that purpose.</span></p>
+            <p><span class="zh">若您目前版本仍包含麥克風權限，其用途僅限於應用程式對應功能，不會在未經您知情與授權之情況下進行錄音、儲存或上傳音訊內容。</span><span class="en">If your current version still includes microphone permission, it is used only for the corresponding app feature. The app will not record, store, or upload audio content without your knowledge and authorization.</span></p>
           </div>
         </section>
 
         <section class="policy-section" id="children">
           <div class="section-number">07</div>
           <div>
-            <h2>七、兒童隱私</h2>
-            <p>本應用程式並非專門面向兒童設計。若您認為未成年人在未經適當監護同意下提供了資料，請透過下方聯絡方式與我們聯繫。</p>
+            <h2><span class="zh">七、兒童隱私</span><span class="en">7. Children’s Privacy</span></h2>
+            <p><span class="zh">本應用程式並非專門面向兒童設計。若您認為未成年人在未經適當監護同意下提供了資料，請透過下方聯絡方式與我們聯繫。</span><span class="en">This app is not specifically designed for children. If you believe that a minor has provided data without appropriate guardian consent, please contact us using the information below.</span></p>
           </div>
         </section>
 
         <section class="policy-section" id="updates">
           <div class="section-number">08</div>
           <div>
-            <h2>八、政策更新</h2>
-            <p>我們可能不定期更新本隱私權政策。更新後的版本將公布於本頁面，並自公布時生效。建議您定期查閱本頁面，以了解最新版本之政策內容。</p>
+            <h2><span class="zh">八、政策更新</span><span class="en">8. Policy Updates</span></h2>
+            <p><span class="zh">我們可能不定期更新本隱私權政策。更新後的版本將公布於本頁面，並自公布時生效。建議您定期查閱本頁面，以了解最新版本之政策內容。</span><span class="en">We may update this privacy policy from time to time. The updated version will be posted on this page and will take effect upon publication. We recommend reviewing this page periodically for the latest policy content.</span></p>
           </div>
         </section>
 
         <section class="policy-section" id="contact">
           <div class="section-number">09</div>
           <div>
-            <h2>九、聯絡方式</h2>
-            <p>若您對本隱私權政策或資料處理方式有任何疑問，歡迎透過下列方式聯絡開發人員：</p>
+            <h2><span class="zh">九、聯絡方式</span><span class="en">9. Contact</span></h2>
+            <p><span class="zh">若您對本隱私權政策或資料處理方式有任何疑問，歡迎透過下列方式聯絡開發人員：</span><span class="en">If you have any questions about this privacy policy or our data handling practices, please contact the developer through the following method:</span></p>
             <div class="contact-box">
-              <div class="contact-label">聯絡電子郵件</div>
+              <div class="contact-label"><span class="zh">聯絡電子郵件</span><span class="en">Contact Email</span></div>
               <div class="contact-email"><a href="mailto:ouhao0731@gmail.com">ouhao0731@gmail.com</a></div>
-              <div class="signature"><span class="signature-badge">OU</span><span>開發人員署名：Howard Ou</span></div>
+              <div class="signature"><span class="signature-badge">OU</span><span class="zh">開發人員署名：Howard Ou</span><span class="en">Developer: Howard Ou</span></div>
             </div>
           </div>
         </section>
       </main>
     </div>
 
-    <footer>© 2026 YouCan · 開發人員：Howard Ou</footer>
+    <footer><span class="zh">© 2026 YouCan · 開發人員：Howard Ou</span><span class="en">© 2026 YouCan · Developer: Howard Ou</span></footer>
   </div>
 
   <script>
+
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('lang-mode', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+      localStorage.setItem('youcan_privacy_lang', lang);
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.title = lang === 'zh' ? 'YouCan 自律盲盒｜隱私權政策' : 'YouCan Mystery Box｜Privacy Policy';
+    }
+
     (function () {
+      const savedLang = localStorage.getItem('youcan_privacy_lang') || 'zh';
+      setLanguage(savedLang);
+
       const progressBar = document.getElementById('progressBar');
       const sections = Array.from(document.querySelectorAll('.policy-section'));
       const tocLinks = Array.from(document.querySelectorAll('.toc a'));
