@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" lang-mode="zh">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,22 +10,27 @@
   />
   <style>
     :root {
-      --bg: #060816;
-      --bg-2: #0b1023;
-      --panel: rgba(255, 255, 255, 0.08);
-      --panel-strong: rgba(255, 255, 255, 0.12);
-      --border: rgba(255, 255, 255, 0.14);
-      --text: #f5f7ff;
-      --muted: rgba(245, 247, 255, 0.72);
-      --muted-2: rgba(245, 247, 255, 0.52);
-      --accent: #7c5cff;
-      --accent-2: #4cc9f0;
-      --accent-3: #9b5cff;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.22);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
+      --bg: #fff8ef;
+      --bg-soft: #fffdf8;
+      --bg-blue: #e9f8ff;
+      --bg-purple: #f4edff;
+      --panel: rgba(255, 255, 255, 0.76);
+      --panel-strong: rgba(255, 255, 255, 0.92);
+      --border: rgba(139, 124, 246, 0.16);
+      --text: #2f2a3d;
+      --muted: rgba(47, 42, 61, 0.72);
+      --muted-2: rgba(47, 42, 61, 0.54);
+      --primary: #8b7cf6;
+      --primary-2: #a78bfa;
+      --blue: #8dd7f7;
+      --orange: #ffb86b;
+      --gold: #ffd166;
+      --green: #69d6a3;
+      --shadow: 0 22px 60px rgba(139, 124, 246, 0.16);
+      --shadow-soft: 0 14px 34px rgba(139, 124, 246, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
       --max-width: 1180px;
     }
 
@@ -43,10 +48,10 @@
         Arial, "Noto Sans TC", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 20%, rgba(124, 92, 255, 0.28), transparent 28%),
-        radial-gradient(circle at 85% 18%, rgba(76, 201, 240, 0.22), transparent 24%),
-        radial-gradient(circle at 72% 78%, rgba(155, 92, 255, 0.18), transparent 22%),
-        linear-gradient(180deg, #060816 0%, #0a0f20 55%, #0b1023 100%);
+        radial-gradient(circle at 10% 10%, rgba(255, 209, 102, 0.34), transparent 24%),
+        radial-gradient(circle at 90% 8%, rgba(141, 215, 247, 0.42), transparent 26%),
+        radial-gradient(circle at 76% 72%, rgba(167, 139, 250, 0.28), transparent 28%),
+        linear-gradient(135deg, #fff8ef 0%, #f7efff 48%, #e9f8ff 100%);
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -57,10 +62,23 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.15));
+        linear-gradient(rgba(139,124,246,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,124,246,0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.50), rgba(0,0,0,0.08));
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 460px;
+      height: 460px;
+      left: -180px;
+      bottom: -180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 184, 107, 0.22), transparent 70%);
+      pointer-events: none;
       z-index: 0;
     }
 
@@ -86,8 +104,8 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(18px);
-      background: rgba(6, 8, 22, 0.52);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 253, 248, 0.72);
+      border-bottom: 1px solid rgba(139, 124, 246, 0.12);
     }
 
     .nav-inner {
@@ -96,7 +114,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 0;
+      padding: 15px 0;
       gap: 16px;
     }
 
@@ -110,12 +128,12 @@
     .brand-logo-wrap {
       width: 44px;
       height: 44px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(124,92,255,0.22), rgba(76,201,240,0.18));
-      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(244,237,255,0.88));
+      border: 1px solid rgba(139,124,246,0.18);
       display: grid;
       place-items: center;
-      box-shadow: 0 10px 24px rgba(124, 92, 255, 0.20);
+      box-shadow: 0 10px 24px rgba(139, 124, 246, 0.16);
       overflow: hidden;
       flex-shrink: 0;
     }
@@ -143,7 +161,7 @@
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
       margin-top: 4px;
     }
 
@@ -159,9 +177,9 @@
       display: inline-flex;
       padding: 4px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(139,124,246,0.14);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.52);
     }
 
     .lang-btn {
@@ -170,7 +188,7 @@
       color: var(--muted);
       padding: 8px 14px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       border-radius: 999px;
       cursor: pointer;
       transition: 0.25s ease;
@@ -178,8 +196,8 @@
 
     .lang-btn.active {
       color: white;
-      background: linear-gradient(135deg, rgba(124, 92, 255, 0.95), rgba(76, 201, 240, 0.92));
-      box-shadow: 0 8px 18px rgba(76, 201, 240, 0.22);
+      background: linear-gradient(135deg, var(--primary), var(--blue));
+      box-shadow: 0 8px 18px rgba(139, 124, 246, 0.26);
     }
 
     .ghost-link {
@@ -187,44 +205,47 @@
       border-radius: 999px;
       color: var(--muted);
       font-size: 14px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(139,124,246,0.12);
+      background: rgba(255,255,255,0.54);
       transition: 0.25s ease;
     }
 
     .ghost-link:hover {
-      color: white;
-      border-color: rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border-color: rgba(139,124,246,0.26);
+      background: rgba(255,255,255,0.92);
+      transform: translateY(-1px);
     }
 
     .hero {
-      padding: 76px 0 30px;
+      padding: 74px 0 34px;
       position: relative;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 28px;
       align-items: stretch;
     }
 
+    .glass-card,
     .hero-left,
     .hero-right-card,
     .section-card,
     .product-showcase-card,
     .next-product-card,
-    .footer-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+    .footer-card,
+    .feature-step {
+      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.64));
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
     }
 
     .hero-left {
-      padding: 40px;
+      padding: 42px;
       position: relative;
       overflow: hidden;
     }
@@ -234,10 +255,10 @@
       position: absolute;
       width: 360px;
       height: 360px;
-      right: -100px;
+      right: -110px;
       top: -120px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,92,255,0.26), transparent 70%);
+      background: radial-gradient(circle, rgba(255, 209, 102, 0.32), transparent 70%);
       pointer-events: none;
     }
 
@@ -247,24 +268,26 @@
       gap: 8px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(124, 92, 255, 0.12);
-      border: 1px solid rgba(124, 92, 255, 0.22);
-      color: #d8d0ff;
+      background: rgba(139, 124, 246, 0.10);
+      border: 1px solid rgba(139, 124, 246, 0.18);
+      color: #6655cf;
       font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 20px;
+      font-weight: 800;
+      margin-bottom: 22px;
     }
 
     .hero h1 {
-      margin: 0 0 18px;
-      font-size: clamp(40px, 7vw, 72px);
+      margin: 0 0 20px;
+      font-size: clamp(34px, 5.2vw, 58px);
       line-height: 1.02;
-      letter-spacing: -0.045em;
-      max-width: 760px;
+      letter-spacing: -0.052em;
+      max-width: 790px;
+      position: relative;
+      z-index: 1;
     }
 
     .gradient-text {
-      background: linear-gradient(135deg, #ffffff 0%, #b7c4ff 38%, #7c5cff 68%, #4cc9f0 100%);
+      background: linear-gradient(135deg, #6d5df6 0%, #a78bfa 42%, #ff9f68 76%, #ffd166 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -275,7 +298,9 @@
       color: var(--muted);
       font-size: 18px;
       line-height: 1.85;
-      max-width: 760px;
+      max-width: 780px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-actions {
@@ -283,6 +308,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
+      position: relative;
+      z-index: 1;
     }
 
     .btn {
@@ -292,29 +319,42 @@
       gap: 10px;
       min-height: 52px;
       padding: 0 22px;
-      border-radius: 16px;
-      font-weight: 700;
+      border-radius: 17px;
+      font-weight: 800;
       font-size: 15px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease, background 0.22s ease;
       cursor: pointer;
       border: 0;
+      white-space: nowrap;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     .btn-primary {
       color: white;
-      background: linear-gradient(135deg, var(--accent) 0%, #6b7cff 45%, var(--accent-2) 100%);
-      box-shadow: 0 14px 28px rgba(94, 92, 255, 0.35);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 48%, var(--blue) 100%);
+      box-shadow: 0 16px 30px rgba(139, 124, 246, 0.28);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 20px 38px rgba(139, 124, 246, 0.34);
     }
 
     .btn-secondary {
-      color: white;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+      color: var(--text);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(139,124,246,0.16);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.36);
+    }
+
+    .btn .arrow {
+      transition: transform 0.22s ease;
+    }
+
+    .btn:hover .arrow {
+      transform: translateX(4px);
     }
 
     .store-badges {
@@ -330,29 +370,30 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.22s ease, opacity 0.22s ease;
+      transition: transform 0.22s ease, opacity 0.22s ease, filter 0.22s ease;
       border-radius: 14px;
       position: relative;
     }
 
     .store-badge-link:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      filter: brightness(1.03);
     }
 
     .store-badge-disabled {
-      opacity: 0.72;
+      opacity: 0.56;
       cursor: not-allowed;
     }
 
     .store-badge-image {
-      height: 56px;
+      height: 54px;
       width: auto;
       display: block;
-      filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.26));
+      filter: drop-shadow(0 10px 18px rgba(47, 42, 61, 0.18));
     }
 
     .store-note {
-      margin-top: 10px;
+      margin-top: 12px;
       color: var(--muted-2);
       font-size: 13px;
       line-height: 1.7;
@@ -363,6 +404,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     .meta-chip {
@@ -372,14 +415,14 @@
       padding: 11px 14px;
       border-radius: 999px;
       color: var(--muted);
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.66);
+      border: 1px solid rgba(139,124,246,0.12);
       font-size: 13px;
     }
 
     .meta-chip span:first-child {
-      color: #5CFF95;
-      text-shadow: 0 0 10px rgba(92, 255, 149, 0.38);
+      color: var(--green);
+      text-shadow: 0 0 10px rgba(105, 214, 163, 0.32);
     }
 
     .hero-right-card {
@@ -400,10 +443,10 @@
       content: "";
       position: absolute;
       inset: auto -40px -60px auto;
-      width: 220px;
-      height: 220px;
+      width: 240px;
+      height: 240px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(76, 201, 240, 0.18), transparent 70%);
+      background: radial-gradient(circle, rgba(141, 215, 247, 0.30), transparent 70%);
       pointer-events: none;
     }
 
@@ -412,16 +455,34 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 14px;
     }
 
     .product-showcase-card {
-      padding: 22px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.07));
+      padding: 24px;
+      border-radius: 26px;
       position: relative;
       overflow: hidden;
+    }
+
+    .product-showcase-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(255,209,102,0.25), transparent 24%),
+        radial-gradient(circle at 8% 88%, rgba(139,124,246,0.12), transparent 26%);
+      pointer-events: none;
+    }
+
+    .product-top,
+    .product-hero,
+    .metric-grid,
+    .store-badges,
+    .store-note {
+      position: relative;
+      z-index: 1;
     }
 
     .product-top {
@@ -434,18 +495,18 @@
 
     .product-name {
       font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
+      font-weight: 900;
+      letter-spacing: -0.035em;
     }
 
     .status-pill {
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 12px;
-      font-weight: 700;
-      color: #d9f8ff;
-      background: rgba(76, 201, 240, 0.12);
-      border: 1px solid rgba(76, 201, 240, 0.18);
+      font-weight: 800;
+      color: #6d4a00;
+      background: rgba(255, 209, 102, 0.32);
+      border: 1px solid rgba(255, 184, 107, 0.30);
       white-space: nowrap;
     }
 
@@ -461,10 +522,9 @@
       height: 112px;
       border-radius: 28px;
       padding: 10px;
-      background:
-        linear-gradient(145deg, rgba(124,92,255,0.26), rgba(76,201,240,0.16));
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: 0 16px 34px rgba(124, 92, 255, 0.18);
+      background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(244,237,255,0.92));
+      border: 1px solid rgba(139,124,246,0.18);
+      box-shadow: 0 16px 34px rgba(139, 124, 246, 0.18);
       display: grid;
       place-items: center;
     }
@@ -493,9 +553,9 @@
 
     .metric-card {
       padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.60);
+      border: 1px solid rgba(139,124,246,0.11);
     }
 
     .metric-label {
@@ -504,32 +564,76 @@
       margin-bottom: 8px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .metric-value {
       font-size: 20px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1.35;
     }
 
     .contact-card {
       padding: 20px 22px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 26px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(139,124,246,0.12);
+      position: relative;
+      z-index: 1;
     }
 
     .contact-email {
       margin: 12px 0 0;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 18px;
       word-break: break-word;
+      color: #6655cf;
+    }
+
+    .floating-scene {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .float-item {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 13px;
+      border-radius: 18px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(139,124,246,0.15);
+      box-shadow: 0 16px 34px rgba(139,124,246,0.13);
+      backdrop-filter: blur(14px);
+      animation: floatY 6.5s ease-in-out infinite;
+    }
+
+    .float-item.one {
+      right: 38px;
+      top: 26px;
+    }
+
+    .float-item.two {
+      left: 34px;
+      bottom: 44px;
+      animation-delay: -1.8s;
+    }
+
+    .float-item.three {
+      right: 56px;
+      bottom: 110px;
+      animation-delay: -3.1s;
     }
 
     .section {
-      padding: 18px 0 24px;
+      padding: 24px 0 34px;
     }
 
     .section-head {
@@ -537,14 +641,14 @@
       justify-content: space-between;
       gap: 18px;
       align-items: end;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
 
     .section-title {
-      font-size: 30px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.035em;
       margin: 0;
     }
 
@@ -552,7 +656,7 @@
       margin: 8px 0 0;
       color: var(--muted);
       line-height: 1.8;
-      max-width: 760px;
+      max-width: 800px;
     }
 
     .cards {
@@ -564,24 +668,31 @@
     .section-card {
       padding: 24px;
       min-height: 220px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 70px rgba(139, 124, 246, 0.20);
+      border-color: rgba(139,124,246,0.24);
     }
 
     .card-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
       display: grid;
       place-items: center;
-      font-size: 18px;
+      font-size: 19px;
       margin-bottom: 18px;
-      background: linear-gradient(135deg, rgba(124,92,255,0.18), rgba(76,201,240,0.16));
-      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(135deg, rgba(139,124,246,0.13), rgba(141,215,247,0.22));
+      border: 1px solid rgba(139,124,246,0.12);
     }
 
     .card-title {
       margin: 0 0 10px;
       font-size: 20px;
-      font-weight: 750;
+      font-weight: 850;
       letter-spacing: -0.02em;
     }
 
@@ -590,6 +701,204 @@
       color: var(--muted);
       line-height: 1.8;
       font-size: 15px;
+    }
+
+    .product-story {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .phone-stage {
+      position: sticky;
+      top: 102px;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .phone-shell {
+      width: min(310px, 86vw);
+      aspect-ratio: 9 / 18.4;
+      border-radius: 42px;
+      padding: 14px;
+      background: linear-gradient(145deg, #ffffff, #efe8ff);
+      border: 1px solid rgba(139,124,246,0.20);
+      box-shadow: 0 26px 70px rgba(139, 124, 246, 0.22);
+      position: relative;
+      animation: floatPhone 7s ease-in-out infinite;
+    }
+
+    .phone-shell::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 86px;
+      height: 24px;
+      border-radius: 999px;
+      background: #2f2a3d;
+      opacity: 0.88;
+      z-index: 3;
+    }
+
+    .phone-screen {
+      height: 100%;
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,209,102,0.38), transparent 24%),
+        linear-gradient(180deg, #fff8ef 0%, #f2eaff 52%, #e5f7ff 100%);
+      overflow: hidden;
+      position: relative;
+      padding: 50px 18px 18px;
+    }
+
+    .screen-card {
+      border-radius: 24px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(139,124,246,0.12);
+      padding: 16px;
+      box-shadow: 0 14px 34px rgba(139,124,246,0.12);
+      margin-bottom: 13px;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .screen-label {
+      color: var(--muted-2);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .screen-title {
+      font-size: 20px;
+      font-weight: 950;
+      letter-spacing: -0.04em;
+    }
+
+    .screen-progress {
+      height: 11px;
+      border-radius: 999px;
+      background: rgba(139,124,246,0.13);
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .screen-progress span {
+      display: block;
+      height: 100%;
+      width: 68%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--orange));
+    }
+
+    .pet-bubble {
+      height: 120px;
+      display: grid;
+      place-items: center;
+      font-size: 54px;
+    }
+
+    .reward-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .reward-chip {
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(139,124,246,0.10);
+      font-size: 24px;
+    }
+
+    .feature-steps {
+      display: grid;
+      gap: 16px;
+    }
+
+    .feature-step {
+      padding: 24px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .feature-step:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139,124,246,0.26);
+      box-shadow: 0 26px 66px rgba(139, 124, 246, 0.18);
+    }
+
+    .step-number {
+      color: #6655cf;
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .step-title {
+      font-size: 23px;
+      font-weight: 950;
+      letter-spacing: -0.035em;
+      margin: 0 0 10px;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .compare-card {
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(139,124,246,0.13);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .compare-card.highlight {
+      background:
+        radial-gradient(circle at 85% 0%, rgba(255,209,102,0.25), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.68));
+      border-color: rgba(139,124,246,0.22);
+    }
+
+    .compare-title {
+      font-size: 22px;
+      font-weight: 950;
+      margin: 0 0 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .compare-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .compare-list li {
+      display: flex;
+      gap: 10px;
+    }
+
+    .compare-list li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: 900;
     }
 
     .products-grid {
@@ -612,12 +921,12 @@
       border-radius: 999px;
       margin-bottom: 16px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 850;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #d8d0ff;
-      background: rgba(124, 92, 255, 0.12);
-      border: 1px solid rgba(124, 92, 255, 0.22);
+      color: #6655cf;
+      background: rgba(139, 124, 246, 0.10);
+      border: 1px solid rgba(139, 124, 246, 0.18);
     }
 
     .product-grid-top {
@@ -632,8 +941,9 @@
       height: 72px;
       border-radius: 22px;
       padding: 6px;
-      background: linear-gradient(145deg, rgba(124,92,255,0.26), rgba(76,201,240,0.16));
-      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(145deg, #ffffff, #efe8ff);
+      border: 1px solid rgba(139,124,246,0.15);
+      box-shadow: var(--shadow-soft);
       flex-shrink: 0;
     }
 
@@ -646,8 +956,8 @@
 
     .mini-app-title {
       font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
+      font-weight: 950;
+      letter-spacing: -0.035em;
       margin: 0;
     }
 
@@ -659,13 +969,13 @@
 
     .next-placeholder {
       margin-top: 18px;
-      border-radius: 24px;
+      border-radius: 26px;
       min-height: 170px;
       display: grid;
       place-items: center;
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border: 1px dashed rgba(255,255,255,0.18);
+        linear-gradient(145deg, rgba(255,255,255,0.64), rgba(244,237,255,0.46));
+      border: 1px dashed rgba(139,124,246,0.28);
       text-align: center;
       padding: 18px;
     }
@@ -678,7 +988,7 @@
 
     .coming-title {
       font-size: 18px;
-      font-weight: 800;
+      font-weight: 950;
       margin-bottom: 8px;
     }
 
@@ -716,16 +1026,17 @@
 
     .footer-link {
       padding: 12px 16px;
-      border-radius: 14px;
+      border-radius: 15px;
       color: var(--muted);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(139,124,246,0.12);
       transition: 0.2s ease;
     }
 
     .footer-link:hover {
-      color: white;
-      background: rgba(255,255,255,0.09);
+      color: var(--text);
+      background: rgba(255,255,255,0.94);
+      transform: translateY(-2px);
     }
 
     .zh,
@@ -749,10 +1060,51 @@
       display: block;
     }
 
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.08s; }
+    .stagger-2 { transition-delay: 0.16s; }
+    .stagger-3 { transition-delay: 0.24s; }
+    .stagger-4 { transition-delay: 0.32s; }
+
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes floatPhone {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
     @media (max-width: 980px) {
       .hero-grid,
       .cards,
-      .products-grid {
+      .products-grid,
+      .product-story,
+      .comparison {
         grid-template-columns: 1fr;
       }
 
@@ -765,20 +1117,32 @@
       .section-card,
       .footer-card,
       .product-showcase-grid-card,
-      .next-product-card {
+      .next-product-card,
+      .feature-step,
+      .compare-card {
         padding: 22px;
       }
 
       .section-title {
-        font-size: 26px;
+        font-size: 27px;
       }
 
       .hero h1 {
-        font-size: clamp(36px, 11vw, 56px);
+        font-size: clamp(31px, 9vw, 46px);
       }
 
       .hero-right-card#download {
         scroll-margin-top: 88px;
+      }
+
+      .phone-stage {
+        position: relative;
+        top: auto;
+        min-height: 420px;
+      }
+
+      .float-item.three {
+        display: none;
       }
     }
 
@@ -851,6 +1215,14 @@
       .hero-right-card#download {
         scroll-margin-top: 82px;
       }
+
+      .float-item {
+        display: none;
+      }
+
+      .phone-shell {
+        width: min(270px, 86vw);
+      }
     }
   </style>
 </head>
@@ -865,12 +1237,16 @@
           <strong>OCH Creative</strong>
           <small>
             <span class="zh">獨立數位產品品牌</span>
-            <span class="en">Independent Digital Product Brand</span>
+            <span class="en">Independent Digital Product Studio</span>
           </small>
         </div>
       </a>
 
       <div class="nav-right">
+        <a class="ghost-link" href="#about">
+          <span class="zh">品牌</span>
+          <span class="en">Brand</span>
+        </a>
         <a class="ghost-link" href="#products">
           <span class="zh">產品</span>
           <span class="en">Products</span>
@@ -884,7 +1260,7 @@
           <span class="en">Privacy</span>
         </a>
         <a class="ghost-link" href="contact.html">
-          <span class="zh">聯絡我們</span>
+          <span class="zh">聯絡</span>
           <span class="en">Contact</span>
         </a>
 
@@ -899,76 +1275,66 @@
   <main class="wrap">
     <section class="hero">
       <div class="hero-grid">
-        <div class="hero-left">
+        <div class="hero-left reveal">
+          <div class="floating-scene" aria-hidden="true">
+            <div class="float-item one">✨ <span class="zh">成長</span><span class="en">Growth</span></div>
+            <div class="float-item two">🎁 <span class="zh">每日任務</span><span class="en">Daily Task</span></div>
+            <div class="float-item three">🏅 <span class="zh">徽章</span><span class="en">Badge</span></div>
+          </div>
+
           <div class="eyebrow">
             <span>✦</span>
-            <span class="zh">未來感數位體驗 × 成長型產品</span>
-            <span class="en">Future-Driven Experiences × Growth Products</span>
+            <span class="zh">OCH Creative × 成長型數位產品</span>
+            <span class="en">OCH Creative × Growth Products</span>
           </div>
 
           <h1>
-            <span class="zh block">打造更有動能、<span class="gradient-text">更有品牌感</span>的數位產品。</span>
-            <span class="en block">Building <span class="gradient-text">future-ready</span> digital products with strong brand identity.</span>
+            <span class="zh block">打造讓人<span class="gradient-text">更願意行動、更專注生活</span>的數位產品。</span>
+            <span class="en block">Building digital products that help people <span class="gradient-text">take action and live with more focus</span>.</span>
           </h1>
 
           <p class="hero-desc">
             <span class="zh block">
-              OCH Creative 專注於打造兼具設計感、科技感與實用性的數位產品，
-              以更細緻的視覺語言、互動節奏與激勵設計，讓成長與自律變成更有吸引力的體驗。
+              OCH Creative 專注於成長、自律與日常動能。我們透過遊戲化回饋、陪伴式體驗與輕量設計，
+              把大目標拆成每天可以完成的小行動。YouCan 自律盲盒是我們的第一款核心產品。
             </span>
             <span class="en block">
-              OCH Creative builds digital products that combine thoughtful design, modern technology,
-              and practical utility — using stronger visual identity, interaction rhythm, and product motivation
-              to make growth and consistency feel more engaging and sustainable.
+              OCH Creative focuses on growth, self-discipline, and everyday momentum.
+              We use game-like feedback, companion-style experiences, and lightweight design
+              to turn big goals into small daily actions. YouCan Mystery Box is our first core product.
             </span>
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#products">
-              <span class="zh">查看產品</span>
-              <span class="en">Explore Products</span>
+              <span class="zh">探索 YouCan</span>
+              <span class="en">Explore YouCan</span>
+              <span class="arrow">→</span>
             </a>
-            <a class="btn btn-secondary" href="contact.html">
-              <span class="zh">聯絡 OCH Creative</span>
-              <span class="en">Contact OCH Creative</span>
+            <a class="btn btn-secondary" href="#about">
+              <span class="zh">了解 OCH Creative</span>
+              <span class="en">About OCH Creative</span>
             </a>
           </div>
 
-          <div class="hero-meta">
-            <div class="meta-chip">
-              <span>●</span>
-              <span class="zh">品牌官網已上線</span>
-              <span class="en">Brand website is live</span>
-            </div>
-            <div class="meta-chip">
-              <span>●</span>
-              <span class="zh">首個產品：YouCan自律盲盒</span>
-              <span class="en">First product: YouCan Mystery Box</span>
-            </div>
-            <div class="meta-chip">
-              <span>●</span>
-              <span class="zh">持續擴展產品矩陣</span>
-              <span class="en">Expanding product lineup</span>
-            </div>
-          </div>
         </div>
 
-        <div class="hero-right-card" id="download">
+        <div class="hero-right-card reveal stagger-1" id="download">
           <div>
             <div class="panel-label">
-              <span class="zh">Featured Product</span>
+              <span class="zh">精選產品</span>
               <span class="en">Featured Product</span>
             </div>
 
             <div class="product-showcase-card">
               <div class="product-top">
                 <div class="product-name">
-                  <span class="zh">YouCan自律盲盒</span>
+                  <span class="zh">YouCan 自律盲盒</span>
                   <span class="en">YouCan Mystery Box</span>
                 </div>
                 <div class="status-pill">
-                  <span class="zh">持續進化中</span>
-                  <span class="en">Evolving</span>
+                  <span class="zh">已上架 Google Play</span>
+                  <span class="en">Available on Google Play</span>
                 </div>
               </div>
 
@@ -979,14 +1345,15 @@
 
                 <p class="product-desc">
                   <span class="zh block">
-                    一款聚焦自律、習慣養成與個人成長體驗的產品，
-                    透過遊戲化回饋、成長視覺與更有節奏的互動設計，幫助使用者穩定前進。
+                    一款把自律變成輕量遊戲體驗的任務成長 APP。透過每日任務、寵物陪伴、
+                    徽章牆、等級與碎片獎勵，讓使用者更容易開始，也更願意持續。
                   </span>
                   <span class="en block">
-                    A growth-focused product designed around self-discipline, habit building,
-                    and motivating feedback systems that help users move forward with consistency.
+                    A task-growth app that turns self-discipline into a lightweight game-like experience —
+                    with daily tasks, companion pets, badges, levels, and fragment rewards.
                   </span>
                 </p>
+              </div>
 
               <div class="store-badges">
                 <a
@@ -1021,8 +1388,6 @@
                 <span class="en">YouCan is currently available on Google Play. App Store version is reserved for a future launch.</span>
               </div>
 
-              </div>
-
               <div class="metric-grid">
                 <div class="metric-card">
                   <div class="metric-label">
@@ -1041,8 +1406,8 @@
                     <span class="en">Product Tone</span>
                   </div>
                   <div class="metric-value">
-                    <span class="zh">科技感 × 激勵感</span>
-                    <span class="en">Tech × Motivation</span>
+                    <span class="zh">陪伴感 × 遊戲化</span>
+                    <span class="en">Companion × Gamified</span>
                   </div>
                 </div>
               </div>
@@ -1051,7 +1416,7 @@
 
           <div class="contact-card">
             <div class="panel-label">
-              <span class="zh">Contact</span>
+              <span class="zh">聯絡方式</span>
               <span class="en">Contact</span>
             </div>
             <p class="product-desc" style="margin: 0;">
@@ -1068,74 +1433,70 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-head">
+    <section class="section" id="about">
+      <div class="section-head reveal">
         <div>
           <h2 class="section-title">
-            <span class="zh">我們在做什麼</span>
-            <span class="en">What We Build</span>
+            <span class="zh">OCH Creative 在做什麼</span>
+            <span class="en">What OCH Creative Builds</span>
           </h2>
           <p class="section-subtitle">
             <span class="zh block">
-              OCH Creative 以成長、自律、專注與日常動能為核心，
-              持續打造兼具產品思維與品牌辨識度的數位體驗。
+              我們不是只做功能，而是把品牌語言、產品機制與使用者動機一起設計。方向很清楚：讓工具更有陪伴感，讓行動更容易開始。
             </span>
             <span class="en block">
-              OCH Creative focuses on growth, self-discipline, focus, and momentum —
-              building digital experiences with both product thinking and strong brand identity.
+              We do not only build features. We design brand language, product mechanisms, and user motivation together.
+              The direction is clear: make tools feel more companion-like and make action easier to start.
             </span>
           </p>
         </div>
       </div>
 
       <div class="cards">
-        <div class="section-card">
-          <div class="card-icon">✦</div>
+        <div class="section-card reveal stagger-1">
+          <div class="card-icon">🌱</div>
           <h3 class="card-title">
-            <span class="zh">品牌化數位產品</span>
-            <span class="en">Branded Digital Products</span>
+            <span class="zh">成長</span>
+            <span class="en">Growth</span>
           </h3>
           <p class="card-desc">
             <span class="zh block">
-              不只是做出功能，而是把品牌語言、視覺層次與互動節奏一起設計進去。
+              把大目標拆成每天能完成的小行動，讓成長不是口號，而是可持續的日常節奏。
             </span>
             <span class="en block">
-              We build more than features — we design visual language, product rhythm,
-              and brand consistency into the full experience.
+              Turning big goals into small daily actions, so growth becomes a sustainable daily rhythm rather than a slogan.
             </span>
           </p>
         </div>
 
-        <div class="section-card">
-          <div class="card-icon">◈</div>
+        <div class="section-card reveal stagger-2">
+          <div class="card-icon">🎁</div>
           <h3 class="card-title">
-            <span class="zh">成長型產品設計</span>
-            <span class="en">Growth-Oriented Design</span>
+            <span class="zh">動機</span>
+            <span class="en">Motivation</span>
           </h3>
           <p class="card-desc">
             <span class="zh block">
-              我們關注如何讓使用者持續行動、建立習慣、維持動機，讓產品真正參與日常進步。
+              用任務、獎勵、等級、徽章與寵物陪伴，讓使用者得到更即時、更具象的正向回饋。
             </span>
             <span class="en block">
-              We design for sustained action, habit formation, and user motivation —
-              helping products become part of everyday progress.
+              Using tasks, rewards, levels, badges, and companion pets to create clearer and more immediate positive feedback.
             </span>
           </p>
         </div>
 
-        <div class="section-card">
-          <div class="card-icon">◎</div>
+        <div class="section-card reveal stagger-3">
+          <div class="card-icon">✨</div>
           <h3 class="card-title">
-            <span class="zh">未來感體驗語言</span>
-            <span class="en">Future-Forward Aesthetics</span>
+            <span class="zh">設計</span>
+            <span class="en">Design</span>
           </h3>
           <p class="card-desc">
             <span class="zh block">
-              透過漸層、光感、玻璃層次與極簡科技視覺，建立一致且具有辨識度的品牌氛圍。
+              用明亮、柔和、輕遊戲化的視覺語言降低壓力，讓產品看起來舒服，也用起來清楚。
             </span>
             <span class="en block">
-              We use gradients, glow, glass layers, and minimal tech aesthetics
-              to create a clear and recognizable brand atmosphere.
+              Using bright, soft, lightly gamified visual language to reduce pressure and make the product feel clear and comfortable.
             </span>
           </p>
         </div>
@@ -1143,7 +1504,193 @@
     </section>
 
     <section class="section" id="products">
-      <div class="section-head">
+      <div class="section-head reveal">
+        <div>
+          <h2 class="section-title">
+            <span class="zh">首款核心產品：YouCan 自律盲盒</span>
+            <span class="en">First Core Product: YouCan Mystery Box</span>
+          </h2>
+          <p class="section-subtitle">
+            <span class="zh block">
+              這一段是網站的產品展示重點。滑動時左側手機示意會保持停留，右側逐步說明 YouCan 的核心玩法。
+            </span>
+            <span class="en block">
+              This is the main product showcase. The phone preview stays in place while the right side explains YouCan’s core mechanics step by step.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="product-story">
+        <div class="phone-stage glass-card reveal">
+          <div class="phone-shell">
+            <div class="phone-screen">
+              <div class="screen-card">
+                <div class="screen-label">
+                  <span class="zh">今日</span>
+                  <span class="en">Today</span>
+                </div>
+                <div class="screen-title">
+                  <span class="zh">打開今日任務盲盒</span>
+                  <span class="en">Open today’s task box</span>
+                </div>
+                <div class="screen-progress"><span></span></div>
+              </div>
+              <div class="screen-card pet-bubble">🐶</div>
+              <div class="reward-row">
+                <div class="reward-chip">🏅</div>
+                <div class="reward-chip">💎</div>
+                <div class="reward-chip">⭐</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-steps">
+          <div class="feature-step reveal stagger-1">
+            <div class="step-number">
+              <span class="zh">01 / 每日任務</span>
+              <span class="en">01 / Daily Task</span>
+            </div>
+            <h3 class="step-title">
+              <span class="zh">每日任務盲盒</span>
+              <span class="en">Daily Task Box</span>
+            </h3>
+            <p class="card-desc">
+              <span class="zh block">
+                使用者不需要一開始就規劃一堆宏大目標。每天打開一個小任務，先開始，再慢慢累積。
+              </span>
+              <span class="en block">
+                Users do not need to plan a huge system from day one. They open one small task each day, start first, and build momentum over time.
+              </span>
+            </p>
+          </div>
+
+          <div class="feature-step reveal stagger-2">
+            <div class="step-number">
+              <span class="zh">02 / 陪伴</span>
+              <span class="en">02 / Companion</span>
+            </div>
+            <h3 class="step-title">
+              <span class="zh">寵物陪伴成長</span>
+              <span class="en">Companion Pet Growth</span>
+            </h3>
+            <p class="card-desc">
+              <span class="zh block">
+                完成任務不只是打勾，而是讓寵物、等級與情緒狀態一起變化，把自律轉成更有生命感的回饋。
+              </span>
+              <span class="en block">
+                Completing a task is not just checking a box. Pets, levels, and mood feedback make self-discipline feel more alive.
+              </span>
+            </p>
+          </div>
+
+          <div class="feature-step reveal stagger-3">
+            <div class="step-number">
+              <span class="zh">03 / 獎勵系統</span>
+              <span class="en">03 / Reward System</span>
+            </div>
+            <h3 class="step-title">
+              <span class="zh">徽章、等級與碎片獎勵</span>
+              <span class="en">Badges, Levels, and Fragments</span>
+            </h3>
+            <p class="card-desc">
+              <span class="zh block">
+                用可視化成就記錄持續努力。徽章牆、碎片與商城讓使用者有下一次打開 APP 的理由。
+              </span>
+              <span class="en block">
+                Visual achievements record consistent effort. Badges, fragments, and the shop give users a reason to come back.
+              </span>
+            </p>
+          </div>
+
+          <div class="feature-step reveal stagger-4">
+            <div class="step-number">
+              <span class="zh">04 / 輕量自律</span>
+              <span class="en">04 / Lightweight Discipline</span>
+            </div>
+            <h3 class="step-title">
+              <span class="zh">不是高壓打卡，而是低壓持續</span>
+              <span class="en">Less Pressure, More Continuity</span>
+            </h3>
+            <p class="card-desc">
+              <span class="zh block">
+                YouCan 的核心不是逼迫使用者完美，而是降低開始門檻，讓每天完成一點點變得更容易。
+              </span>
+              <span class="en block">
+                YouCan is not built to pressure users into perfection. It lowers the starting barrier and makes small daily progress easier.
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal">
+        <div>
+          <h2 class="section-title">
+            <span class="zh">為什麼不是普通打卡 APP</span>
+            <span class="en">Why It Is Not Just Another Habit Tracker</span>
+          </h2>
+          <p class="section-subtitle">
+            <span class="zh block">
+              這一段用來補足產品說服力，讓新使用者快速理解 YouCan 與普通待辦、打卡工具的差異。
+            </span>
+            <span class="en block">
+              This section strengthens product persuasion. New users need to understand how YouCan differs from ordinary to-do or habit tools.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="comparison">
+        <div class="compare-card reveal stagger-1">
+          <h3 class="compare-title">
+            <span class="zh">普通打卡工具</span>
+            <span class="en">Ordinary Trackers</span>
+          </h3>
+          <ul class="compare-list">
+            <li>
+              <span class="zh">主要記錄完成與否，回饋比較單一。</span>
+              <span class="en">Mainly records completion, with limited feedback.</span>
+            </li>
+            <li>
+              <span class="zh">容易變成壓力清單，用久後疲勞。</span>
+              <span class="en">Often becomes a pressure list and causes fatigue over time.</span>
+            </li>
+            <li>
+              <span class="zh">缺少每日期待感，使用理由不夠強。</span>
+              <span class="en">Lacks daily anticipation and a strong reason to return.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="compare-card highlight reveal stagger-2">
+          <h3 class="compare-title">
+            <span class="zh">YouCan 自律盲盒</span>
+            <span class="en">YouCan Mystery Box</span>
+          </h3>
+          <ul class="compare-list">
+            <li>
+              <span class="zh">用盲盒任務降低開始門檻。</span>
+              <span class="en">Uses mystery-box tasks to lower the starting barrier.</span>
+            </li>
+            <li>
+              <span class="zh">用寵物、徽章、等級與碎片提供多層回饋。</span>
+              <span class="en">Provides layered feedback through pets, badges, levels, and fragments.</span>
+            </li>
+            <li>
+              <span class="zh">把自律包裝成更輕、更願意持續的日常體驗。</span>
+              <span class="en">Turns discipline into a lighter and more sustainable daily experience.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal">
         <div>
           <h2 class="section-title">
             <span class="zh">產品矩陣</span>
@@ -1154,17 +1701,16 @@
               從 YouCan 自律盲盒出發，OCH Creative 將持續推出更多圍繞成長、動機與日常效率的產品。
             </span>
             <span class="en block">
-              Starting with YouCan Mystery Box, OCH Creative will continue expanding into products
-              centered on growth, motivation, and everyday effectiveness.
+              Starting with YouCan Mystery Box, OCH Creative will continue expanding into products centered on growth, motivation, and everyday effectiveness.
             </span>
           </p>
         </div>
       </div>
 
       <div class="products-grid">
-        <div class="product-showcase-grid-card">
+        <div class="product-showcase-grid-card glass-card reveal stagger-1">
           <div class="product-tag">
-            <span class="zh">Current Product</span>
+            <span class="zh">目前產品</span>
             <span class="en">Current Product</span>
           </div>
 
@@ -1174,7 +1720,7 @@
             </div>
             <div>
               <h3 class="mini-app-title">
-                <span class="zh">YouCan自律盲盒</span>
+                <span class="zh">YouCan 自律盲盒</span>
                 <span class="en">YouCan Mystery Box</span>
               </h3>
               <div class="mini-app-sub">
@@ -1186,19 +1732,19 @@
 
           <p class="card-desc">
             <span class="zh block">
-              以盲盒機制、成長回饋、日常任務與激勵設計為核心，
+              以盲盒機制、寵物陪伴、成長回饋、日常任務與激勵設計為核心，
               讓使用者把自律轉化成更有趣、更願意持續的生活節奏。
             </span>
             <span class="en block">
-              Built around mystery-box mechanics, growth feedback, daily tasks, and motivational design,
+              Built around mystery-box mechanics, companion pets, growth feedback, daily tasks, and motivational design,
               YouCan turns discipline into a more engaging and sustainable rhythm.
             </span>
           </p>
         </div>
 
-        <div class="next-product-card">
+        <div class="next-product-card reveal stagger-2">
           <div class="product-tag">
-            <span class="zh">Next Product</span>
+            <span class="zh">下一款產品</span>
             <span class="en">Next Product</span>
           </div>
 
@@ -1209,11 +1755,10 @@
 
           <p class="card-desc">
             <span class="zh block">
-              這裡將作為下一款產品的介紹區塊，未來可放置產品名稱、定位、核心價值與視覺主圖。
+              這裡保留給下一款產品。未來可以放置產品名稱、定位、核心價值、icon 或預覽圖。
             </span>
             <span class="en block">
-              This section is reserved for the next product launch, including its name,
-              positioning, core value proposition, and hero visual.
+              This section is reserved for the next product launch, including its name, positioning, core value, icon, or preview image.
             </span>
           </p>
 
@@ -1223,7 +1768,7 @@
 
             <div>
               <div class="coming-title">
-                <span class="zh">Coming Next</span>
+                <span class="zh">即將推出</span>
                 <span class="en">Coming Next</span>
               </div>
               <p class="coming-desc">
@@ -1231,8 +1776,7 @@
                   預留中。未來可替換為新產品 icon、預覽圖或一句更有吸引力的產品標語。
                 </span>
                 <span class="en block">
-                  Reserved for your next launch. Replace this with a future app icon,
-                  visual preview, or a stronger product teaser.
+                  Reserved for your next launch. Replace this with a future app icon, visual preview, or a stronger product teaser.
                 </span>
               </p>
             </div>
@@ -1242,14 +1786,14 @@
     </section>
 
     <footer class="footer">
-      <div class="footer-card">
+      <div class="footer-card reveal">
         <div class="footer-copy">
           <strong>OCH Creative</strong><br />
           <span class="zh">
-            獨立數位產品品牌，專注於成長、自律與更好的使用者體驗。
+            獨立數位產品工作室，專注於成長、自律與更好的使用者體驗。
           </span>
           <span class="en">
-            An independent digital product brand focused on growth, self-discipline, and better user experiences.
+            An independent digital product studio focused on growth, self-discipline, and better user experiences.
           </span>
         </div>
 
@@ -1284,20 +1828,75 @@
     })();
 
     (function () {
-      const downloadLink = document.querySelector('.ghost-link[href="#download"]');
-      const downloadSection = document.getElementById('download');
-      if (!downloadLink || !downloadSection) return;
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          const targetId = link.getAttribute('href');
+          if (!targetId || targetId === '#') return;
 
-      downloadLink.addEventListener('click', function (event) {
-        event.preventDefault();
-        const nav = document.querySelector('.nav');
-        const navHeight = nav ? nav.getBoundingClientRect().height : 0;
-        const targetTop = downloadSection.getBoundingClientRect().top + window.scrollY - navHeight - 12;
-        window.scrollTo({
-          top: Math.max(targetTop, 0),
-          behavior: 'smooth'
+          const target = document.querySelector(targetId);
+          if (!target) return;
+
+          event.preventDefault();
+          const nav = document.querySelector('.nav');
+          const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+          const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+
+          window.scrollTo({
+            top: Math.max(targetTop, 0),
+            behavior: 'smooth'
+          });
+          history.replaceState(null, '', targetId);
         });
-        history.replaceState(null, '', '#download');
+      });
+    })();
+
+    (function () {
+      const revealItems = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealItems.forEach(function (item) {
+          item.classList.add('visible');
+        });
+        return;
+      }
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.14,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealItems.forEach(function (item) {
+        observer.observe(item);
+      });
+    })();
+
+    (function () {
+      const hero = document.querySelector('.hero-left');
+      const floatItems = document.querySelectorAll('.float-item');
+      if (!hero || !floatItems.length) return;
+
+      hero.addEventListener('mousemove', function (event) {
+        const rect = hero.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+        floatItems.forEach(function (item, index) {
+          const strength = (index + 1) * 8;
+          item.style.transform = 'translate(' + (x * strength) + 'px, ' + (y * strength) + 'px)';
+        });
+      });
+
+      hero.addEventListener('mouseleave', function () {
+        floatItems.forEach(function (item) {
+          item.style.transform = '';
+        });
       });
     })();
   </script>
