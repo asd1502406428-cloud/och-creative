@@ -485,6 +485,41 @@
       z-index: 1;
     }
 
+
+    .product-ribbon {
+      position: absolute;
+      top: 18px;
+      right: -44px;
+      z-index: 2;
+      transform: rotate(35deg);
+      min-width: 156px;
+      text-align: center;
+      padding: 8px 18px;
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--primary), var(--orange));
+      box-shadow: 0 12px 26px rgba(139, 124, 246, 0.22);
+    }
+
+    .footer-bottom {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 14px auto 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted-2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
     .product-top {
       display: flex;
       justify-content: space-between;
@@ -1276,16 +1311,10 @@
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-left reveal">
-          <div class="floating-scene" aria-hidden="true">
-            <div class="float-item one">✨ <span class="zh">成長</span><span class="en">Growth</span></div>
-            <div class="float-item two">🎁 <span class="zh">每日任務</span><span class="en">Daily Task</span></div>
-            <div class="float-item three">🏅 <span class="zh">徽章</span><span class="en">Badge</span></div>
-          </div>
-
           <div class="eyebrow">
             <span>✦</span>
-            <span class="zh">OCH Creative × 成長型數位產品</span>
-            <span class="en">OCH Creative × Growth Products</span>
+            <span class="zh">成長型數位產品 · 獨立工作室</span>
+            <span class="en">Growth Products · Independent Studio</span>
           </div>
 
           <h1>
@@ -1295,25 +1324,24 @@
 
           <p class="hero-desc">
             <span class="zh block">
-              OCH Creative 專注於成長、自律與日常動能。我們透過遊戲化回饋、陪伴式體驗與輕量設計，
-              把大目標拆成每天可以完成的小行動。YouCan 自律盲盒是我們的第一款核心產品。
+              OCH Creative 是一間獨立數位產品工作室。我們相信，行為的改變不靠意志力，而靠設計。
+              把每天的開始變得更輕，把過程變得更有回饋，自律就會自然發生。
             </span>
             <span class="en block">
-              OCH Creative focuses on growth, self-discipline, and everyday momentum.
-              We use game-like feedback, companion-style experiences, and lightweight design
-              to turn big goals into small daily actions. YouCan Mystery Box is our first core product.
+              OCH Creative is an independent digital product studio. We believe behavior change comes from design, not willpower.
+              Make starting easier, make the process rewarding, and discipline takes care of itself.
             </span>
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#products">
-              <span class="zh">探索 YouCan</span>
-              <span class="en">Explore YouCan</span>
+              <span class="zh">看看 YouCan</span>
+              <span class="en">Meet YouCan</span>
               <span class="arrow">→</span>
             </a>
             <a class="btn btn-secondary" href="#about">
-              <span class="zh">了解 OCH Creative</span>
-              <span class="en">About OCH Creative</span>
+              <span class="zh">關於我們</span>
+              <span class="en">About us</span>
             </a>
           </div>
 
@@ -1322,19 +1350,19 @@
         <div class="hero-right-card reveal stagger-1" id="download">
           <div>
             <div class="panel-label">
-              <span class="zh">精選產品</span>
-              <span class="en">Featured Product</span>
+              <span class="zh">精選產品 / 01</span>
+              <span class="en">Featured / 01</span>
             </div>
 
             <div class="product-showcase-card">
+              <div class="product-ribbon">
+                <span class="zh">主打產品</span>
+                <span class="en">Featured</span>
+              </div>
               <div class="product-top">
                 <div class="product-name">
                   <span class="zh">YouCan 自律盲盒</span>
                   <span class="en">YouCan Mystery Box</span>
-                </div>
-                <div class="status-pill">
-                  <span class="zh">已上架 Google Play</span>
-                  <span class="en">Available on Google Play</span>
                 </div>
               </div>
 
@@ -1345,12 +1373,12 @@
 
                 <p class="product-desc">
                   <span class="zh block">
-                    一款把自律變成輕量遊戲體驗的任務成長 APP。透過每日任務、寵物陪伴、
-                    徽章牆、等級與碎片獎勵，讓使用者更容易開始，也更願意持續。
+                    把自律設計成一場輕量的日常遊戲。每天打開一個任務盲盒、養一隻會跟著你成長的寵物、
+                    收集徽章與碎片——讓「開始」比「堅持」更重要。
                   </span>
                   <span class="en block">
-                    A task-growth app that turns self-discipline into a lightweight game-like experience —
-                    with daily tasks, companion pets, badges, levels, and fragment rewards.
+                    A lightweight daily game built around self-discipline. Open one task box a day,
+                    raise a pet that grows with you, collect badges and fragments — because starting matters more than perfecting.
                   </span>
                 </p>
               </div>
@@ -1384,47 +1412,24 @@
               </div>
 
               <div class="store-note">
-                <span class="zh">YouCan 目前已可於 Google Play 下載，App Store 版本預留中。</span>
-                <span class="en">YouCan is currently available on Google Play. App Store version is reserved for a future launch.</span>
+                <span class="zh">Android 版本已上架，iOS 版本仍在準備中。</span>
+                <span class="en">Android available now. iOS version in the works.</span>
               </div>
 
-              <div class="metric-grid">
-                <div class="metric-card">
-                  <div class="metric-label">
-                    <span class="zh">核心方向</span>
-                    <span class="en">Core Direction</span>
-                  </div>
-                  <div class="metric-value">
-                    <span class="zh">自律 × 成長體驗</span>
-                    <span class="en">Discipline × Growth UX</span>
-                  </div>
-                </div>
-
-                <div class="metric-card">
-                  <div class="metric-label">
-                    <span class="zh">產品特質</span>
-                    <span class="en">Product Tone</span>
-                  </div>
-                  <div class="metric-value">
-                    <span class="zh">陪伴感 × 遊戲化</span>
-                    <span class="en">Companion × Gamified</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
           <div class="contact-card">
             <div class="panel-label">
-              <span class="zh">聯絡方式</span>
-              <span class="en">Contact</span>
+              <span class="zh">聯絡我們</span>
+              <span class="en">Get in touch</span>
             </div>
             <p class="product-desc" style="margin: 0;">
               <span class="zh block">
-                若有產品支援、合作洽詢或隱私相關問題，歡迎透過電子郵件聯絡：
+                產品支援、合作或隱私相關問題，歡迎來信。
               </span>
               <span class="en block">
-                For product support, partnership inquiries, or privacy-related questions, contact:
+                Product support, partnerships, privacy — just drop us a line.
               </span>
             </p>
             <p class="contact-email">ouhao0731@gmail.com</p>
@@ -1437,16 +1442,17 @@
       <div class="section-head reveal">
         <div>
           <h2 class="section-title">
-            <span class="zh">OCH Creative 在做什麼</span>
-            <span class="en">What OCH Creative Builds</span>
+            <span class="zh">我們在意的，不只是功能。</span>
+            <span class="en">It's not just features we care about.</span>
           </h2>
           <p class="section-subtitle">
             <span class="zh block">
-              我們不是只做功能，而是把品牌語言、產品機制與使用者動機一起設計。方向很清楚：讓工具更有陪伴感，讓行動更容易開始。
+              品牌語言、產品機制、使用者動機——這三件事我們會一起設計。一個工具好不好用，
+              從來不只取決於它能做什麼，而是它讓人感覺什麼。
             </span>
             <span class="en block">
-              We do not only build features. We design brand language, product mechanisms, and user motivation together.
-              The direction is clear: make tools feel more companion-like and make action easier to start.
+              Brand voice, product mechanics, and user motivation — we design all three together.
+              A tool isn't measured only by what it does, but by how it makes people feel.
             </span>
           </p>
         </div>
@@ -1461,10 +1467,10 @@
           </h3>
           <p class="card-desc">
             <span class="zh block">
-              把大目標拆成每天能完成的小行動，讓成長不是口號，而是可持續的日常節奏。
+              把模糊的「我想變得更好」拆成今天就能做的一件小事。成長不是口號，是可以累積的日常節奏。
             </span>
             <span class="en block">
-              Turning big goals into small daily actions, so growth becomes a sustainable daily rhythm rather than a slogan.
+              Translating the vague "I want to be better" into one small thing you can do today. Growth isn't a slogan — it's a daily rhythm you accumulate.
             </span>
           </p>
         </div>
@@ -1477,10 +1483,10 @@
           </h3>
           <p class="card-desc">
             <span class="zh block">
-              用任務、獎勵、等級、徽章與寵物陪伴，讓使用者得到更即時、更具象的正向回饋。
+              用任務、寵物、徽章與等級設計多層回饋。讓使用者每完成一件小事，都能立刻感覺到「值得」。
             </span>
             <span class="en block">
-              Using tasks, rewards, levels, badges, and companion pets to create clearer and more immediate positive feedback.
+              Tasks, pets, badges, levels — layered feedback designed so every small completion feels worth it, instantly.
             </span>
           </p>
         </div>
@@ -1493,10 +1499,10 @@
           </h3>
           <p class="card-desc">
             <span class="zh block">
-              用明亮、柔和、輕遊戲化的視覺語言降低壓力，讓產品看起來舒服，也用起來清楚。
+              明亮、柔和、帶點玩心的視覺語言。降低使用壓力，讓產品看起來舒服，用起來清楚。
             </span>
             <span class="en block">
-              Using bright, soft, lightly gamified visual language to reduce pressure and make the product feel clear and comfortable.
+              Bright, soft, gently playful. Visual language that lowers pressure and keeps the experience clear and easy to live with.
             </span>
           </p>
         </div>
@@ -1507,15 +1513,17 @@
       <div class="section-head reveal">
         <div>
           <h2 class="section-title">
-            <span class="zh">首款核心產品：YouCan 自律盲盒</span>
-            <span class="en">First Core Product: YouCan Mystery Box</span>
+            <span class="zh">主打作品：YouCan 自律盲盒</span>
+            <span class="en">The Main Work: YouCan Mystery Box</span>
           </h2>
           <p class="section-subtitle">
             <span class="zh block">
-              這一段是網站的產品展示重點。滑動時左側手機示意會保持停留，右側逐步說明 YouCan 的核心玩法。
+              這是 OCH Creative 的第一款核心產品，也是我們對「自律」這件事的回答。
+              下面四個步驟，是它從打開到留下來的完整邏輯。
             </span>
             <span class="en block">
-              This is the main product showcase. The phone preview stays in place while the right side explains YouCan’s core mechanics step by step.
+              YouCan is our first core product — our answer to what "self-discipline" should actually feel like.
+              Below are the four mechanics that make it work, from first tap to lasting habit.
             </span>
           </p>
         </div>
@@ -1553,15 +1561,15 @@
               <span class="en">01 / Daily Task</span>
             </div>
             <h3 class="step-title">
-              <span class="zh">每日任務盲盒</span>
-              <span class="en">Daily Task Box</span>
+              <span class="zh">不規劃，先打開</span>
+              <span class="en">Just open, don't plan</span>
             </h3>
             <p class="card-desc">
               <span class="zh block">
-                使用者不需要一開始就規劃一堆宏大目標。每天打開一個小任務，先開始，再慢慢累積。
+                不用先設計一整套生活系統。每天從一個小任務開始，先動起來，剩下的讓累積去說話。
               </span>
               <span class="en block">
-                Users do not need to plan a huge system from day one. They open one small task each day, start first, and build momentum over time.
+                No need to design a whole life system upfront. Start each day with one small task. Get moving first — let accumulation do the rest.
               </span>
             </p>
           </div>
@@ -1572,15 +1580,15 @@
               <span class="en">02 / Companion</span>
             </div>
             <h3 class="step-title">
-              <span class="zh">寵物陪伴成長</span>
-              <span class="en">Companion Pet Growth</span>
+              <span class="zh">不是打勾，是養成</span>
+              <span class="en">Not checking off — raising</span>
             </h3>
             <p class="card-desc">
               <span class="zh block">
-                完成任務不只是打勾，而是讓寵物、等級與情緒狀態一起變化，把自律轉成更有生命感的回饋。
+                完成任務不只在清單上劃線。寵物會跟著你成長、心情會回應你的節奏，讓自律有了體溫。
               </span>
               <span class="en block">
-                Completing a task is not just checking a box. Pets, levels, and mood feedback make self-discipline feel more alive.
+                Finishing a task is more than crossing a line. The pet grows alongside you, its mood follows your rhythm — discipline gets a heartbeat.
               </span>
             </p>
           </div>
@@ -1591,15 +1599,15 @@
               <span class="en">03 / Reward System</span>
             </div>
             <h3 class="step-title">
-              <span class="zh">徽章、等級與碎片獎勵</span>
-              <span class="en">Badges, Levels, and Fragments</span>
+              <span class="zh">看得見的累積</span>
+              <span class="en">Progress you can see</span>
             </h3>
             <p class="card-desc">
               <span class="zh block">
-                用可視化成就記錄持續努力。徽章牆、碎片與商城讓使用者有下一次打開 APP 的理由。
+                徽章牆、碎片與商城把抽象的努力變成可視化的成就。明天還會想回來，因為昨天的努力沒有消失。
               </span>
               <span class="en block">
-                Visual achievements record consistent effort. Badges, fragments, and the shop give users a reason to come back.
+                A badge wall, collectible fragments, and an in-app shop turn invisible effort into something you can see. You come back tomorrow because yesterday didn't vanish.
               </span>
             </p>
           </div>
@@ -1610,15 +1618,15 @@
               <span class="en">04 / Lightweight Discipline</span>
             </div>
             <h3 class="step-title">
-              <span class="zh">不是高壓打卡，而是低壓持續</span>
-              <span class="en">Less Pressure, More Continuity</span>
+              <span class="zh">不逼你完美</span>
+              <span class="en">Not built to push you</span>
             </h3>
             <p class="card-desc">
               <span class="zh block">
-                YouCan 的核心不是逼迫使用者完美，而是降低開始門檻，讓每天完成一點點變得更容易。
+                YouCan 不想做一個逼人完美的工具。它在意的是：今天有沒有比昨天，多走一點點。
               </span>
               <span class="en block">
-                YouCan is not built to pressure users into perfection. It lowers the starting barrier and makes small daily progress easier.
+                YouCan isn't designed to push you toward perfection. It only cares whether today moved a little further than yesterday.
               </span>
             </p>
           </div>
@@ -1630,15 +1638,15 @@
       <div class="section-head reveal">
         <div>
           <h2 class="section-title">
-            <span class="zh">為什麼不是普通打卡 APP</span>
-            <span class="en">Why It Is Not Just Another Habit Tracker</span>
+            <span class="zh">和一般打卡 APP，到底差在哪？</span>
+            <span class="en">So what makes it different from a habit tracker?</span>
           </h2>
           <p class="section-subtitle">
             <span class="zh block">
-              這一段用來補足產品說服力，讓新使用者快速理解 YouCan 與普通待辦、打卡工具的差異。
+              兩種思路，兩種使用者體感。同樣是「養成」，差別在於：你是被工具監督，還是被產品陪著走。
             </span>
             <span class="en block">
-              This section strengthens product persuasion. New users need to understand how YouCan differs from ordinary to-do or habit tools.
+              Two philosophies, two completely different experiences. Same goal of "habit building" — but one supervises you, the other walks with you.
             </span>
           </p>
         </div>
@@ -1652,16 +1660,16 @@
           </h3>
           <ul class="compare-list">
             <li>
-              <span class="zh">主要記錄完成與否，回饋比較單一。</span>
-              <span class="en">Mainly records completion, with limited feedback.</span>
+              <span class="zh">只記錄完成與否，回饋停留在「是/否」。</span>
+              <span class="en">Records completion as a binary — done or not.</span>
             </li>
             <li>
-              <span class="zh">容易變成壓力清單，用久後疲勞。</span>
-              <span class="en">Often becomes a pressure list and causes fatigue over time.</span>
+              <span class="zh">很容易演變成壓力清單，用久就累。</span>
+              <span class="en">Easily turns into a pressure list. Burns you out over time.</span>
             </li>
             <li>
-              <span class="zh">缺少每日期待感，使用理由不夠強。</span>
-              <span class="en">Lacks daily anticipation and a strong reason to return.</span>
+              <span class="zh">缺少每天打開它的理由，只剩責任。</span>
+              <span class="en">No real reason to come back — only obligation.</span>
             </li>
           </ul>
         </div>
@@ -1673,16 +1681,16 @@
           </h3>
           <ul class="compare-list">
             <li>
-              <span class="zh">用盲盒任務降低開始門檻。</span>
-              <span class="en">Uses mystery-box tasks to lower the starting barrier.</span>
+              <span class="zh">用盲盒機制降低「開始」的心理門檻。</span>
+              <span class="en">Mystery-box mechanics lower the cost of starting.</span>
             </li>
             <li>
-              <span class="zh">用寵物、徽章、等級與碎片提供多層回饋。</span>
-              <span class="en">Provides layered feedback through pets, badges, levels, and fragments.</span>
+              <span class="zh">寵物、徽章、等級、碎片——多層回饋取代單一勾選。</span>
+              <span class="en">Pets, badges, levels, fragments — layered feedback instead of one checkbox.</span>
             </li>
             <li>
-              <span class="zh">把自律包裝成更輕、更願意持續的日常體驗。</span>
-              <span class="en">Turns discipline into a lighter and more sustainable daily experience.</span>
+              <span class="zh">把自律變成你願意明天再回來的事。</span>
+              <span class="en">Turns discipline into something you actually want to come back to.</span>
             </li>
           </ul>
         </div>
@@ -1693,15 +1701,15 @@
       <div class="section-head reveal">
         <div>
           <h2 class="section-title">
-            <span class="zh">產品矩陣</span>
-            <span class="en">Product Lineup</span>
+            <span class="zh">產品線</span>
+            <span class="en">The Lineup</span>
           </h2>
           <p class="section-subtitle">
             <span class="zh block">
-              從 YouCan 自律盲盒出發，OCH Creative 將持續推出更多圍繞成長、動機與日常效率的產品。
+              從 YouCan 開始，OCH Creative 會繼續往「成長、動機、日常效率」這個方向做下去。下一款已經在路上。
             </span>
             <span class="en block">
-              Starting with YouCan Mystery Box, OCH Creative will continue expanding into products centered on growth, motivation, and everyday effectiveness.
+              Starting with YouCan, OCH Creative will keep building in the direction of growth, motivation, and everyday effectiveness. The next one is already on the way.
             </span>
           </p>
         </div>
@@ -1710,8 +1718,8 @@
       <div class="products-grid">
         <div class="product-showcase-grid-card glass-card reveal stagger-1">
           <div class="product-tag">
-            <span class="zh">目前產品</span>
-            <span class="en">Current Product</span>
+            <span class="zh">● 已上線</span>
+            <span class="en">● Now Live</span>
           </div>
 
           <div class="product-grid-top">
@@ -1724,41 +1732,43 @@
                 <span class="en">YouCan Mystery Box</span>
               </h3>
               <div class="mini-app-sub">
-                <span class="zh">自律 × 習慣養成 × 成長體驗</span>
-                <span class="en">Discipline × Habits × Growth Experience</span>
+                <span class="zh">自律 / 習慣 / 成長體驗</span>
+                <span class="en">Discipline / Habits / Growth</span>
               </div>
             </div>
           </div>
 
           <p class="card-desc">
             <span class="zh block">
-              以盲盒機制、寵物陪伴、成長回饋、日常任務與激勵設計為核心，
-              讓使用者把自律轉化成更有趣、更願意持續的生活節奏。
+              以盲盒任務、寵物陪伴、徽章與碎片為核心機制，讓自律變成一場可以期待的日常遊戲。
             </span>
             <span class="en block">
-              Built around mystery-box mechanics, companion pets, growth feedback, daily tasks, and motivational design,
-              YouCan turns discipline into a more engaging and sustainable rhythm.
+              Built around mystery tasks, companion pets, badges, and fragments — turning discipline into a daily game worth looking forward to.
             </span>
           </p>
         </div>
 
         <div class="next-product-card reveal stagger-2">
           <div class="product-tag">
-            <span class="zh">下一款產品</span>
-            <span class="en">Next Product</span>
+            <span class="zh">○ 開發中</span>
+            <span class="en">○ In Progress</span>
           </div>
 
           <h3 class="mini-app-title" style="margin-bottom: 10px;">
-            <span class="zh">下一款產品預告</span>
-            <span class="en">Next Product Preview</span>
+            <span class="zh">下一款作品</span>
+            <span class="en">The Next One</span>
           </h3>
+          <div class="mini-app-sub" style="margin-bottom: 16px;">
+            <span class="zh">仍在打磨中 · 預告即將揭曉</span>
+            <span class="en">Still in the workshop · soon</span>
+          </div>
 
           <p class="card-desc">
             <span class="zh block">
-              這裡保留給下一款產品。未來可以放置產品名稱、定位、核心價值、icon 或預覽圖。
+              延續 OCH Creative 對「成長」的關注，下一款作品會探索另一個讓日常變得更輕的角度——更多細節，等再走近一點再說。
             </span>
             <span class="en block">
-              This section is reserved for the next product launch, including its name, positioning, core value, icon, or preview image.
+              Continuing OCH Creative's focus on growth, the next piece explores another angle on making daily life feel lighter. More to share once it's a little closer.
             </span>
           </p>
 
@@ -1773,10 +1783,10 @@
               </div>
               <p class="coming-desc">
                 <span class="zh block">
-                  預留中。未來可替換為新產品 icon、預覽圖或一句更有吸引力的產品標語。
+                  想第一時間知道？來信留下你的 email。
                 </span>
                 <span class="en block">
-                  Reserved for your next launch. Replace this with a future app icon, visual preview, or a stronger product teaser.
+                  Want to be the first to know? Drop us a note.
                 </span>
               </p>
             </div>
@@ -1790,10 +1800,10 @@
         <div class="footer-copy">
           <strong>OCH Creative</strong><br />
           <span class="zh">
-            獨立數位產品工作室，專注於成長、自律與更好的使用者體驗。
+            獨立數位產品工作室，關注成長、自律，以及讓使用者願意回來的設計。
           </span>
           <span class="en">
-            An independent digital product studio focused on growth, self-discipline, and better user experiences.
+            An independent digital product studio. We work on growth, self-discipline, and the kind of design people come back to.
           </span>
         </div>
 
@@ -1808,6 +1818,13 @@
           </a>
           <a class="footer-link" href="mailto:ouhao0731@gmail.com">Email</a>
         </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 OCH CREATIVE · ALL RIGHTS RESERVED</span>
+        <span>
+          <span class="zh">用心做產品 · TAIPEI / XIAMEN</span>
+          <span class="en">CRAFTED WITH CARE · TAIPEI / XIAMEN</span>
+        </span>
       </div>
     </footer>
   </main>
